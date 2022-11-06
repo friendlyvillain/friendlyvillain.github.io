@@ -1,6 +1,6 @@
 var store = [{
-        "title": "github.io 블로그 첫 포스팅입니다",
-        "excerpt":"If you want to review the page on the local server, execute bundle exec jekyll serve on the command line.  ","categories": [],
+        "title": "github.io based page start",
+        "excerpt":"Requirements: ruby, bundle   Post file format: YYYY-MM-DD-aaabbbccc.md   Post file location: put created post file on _post directory on the cloned git repository   If you want to review the page on the local server, execute ‘bundle exec jekyll serve’ on the command terminal.  ","categories": [],
         "tags": ["Blog"],
         "url": "/simple_guide/",
         "teaser": null

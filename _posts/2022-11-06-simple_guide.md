@@ -1,6 +1,6 @@
 ---
-title: "github.io 블로그 첫 포스팅입니다"
-excerpt: "Github Blog글을 처음 써보며."
+title: "github.io based page start"
+excerpt: "Quick guide"
 
 categorise:
   - Blog
@@ -8,5 +8,10 @@ tags:
   - Blog
 ---
 
-If you want to review the page on the local server,
-execute bundle exec jekyll serve on the command line.
+Requirements: ruby, bundle
+
+Post file format: YYYY-MM-DD-aaabbbccc.md
+
+Post file location: put created post file on _post directory on the cloned git repository
+
+If you want to review the page on the local server, execute 'bundle exec jekyll serve' on the command terminal.
