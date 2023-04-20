@@ -20,7 +20,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Simple record # the main title
+title: Simple Record # the main title
 
 tagline: Do it, till make it! # it will display as the sub-title
 
