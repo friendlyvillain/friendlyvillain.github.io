@@ -22,7 +22,7 @@ timezone: Asia/Seoul
 
 title: Simple record # the main title
 
-tagline: Do it till make it! # it will display as the sub-title
+tagline: Do it, till make it! # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
