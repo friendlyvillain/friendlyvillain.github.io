@@ -21,6 +21,8 @@ self.addEventListener("install", (event) => {
       });
   });
 
+
+  
 /* 
 self.importScripts('{{ "/assets/js/data/swcache.js" | relative_url }}');
 

@@ -439,6 +439,7 @@ i {
   font-size: 1.08rem;
   margin-top: 2rem;
   overflow-wrap: break-word;
+  text-align: justify; // add text-align config
 
   a {
     &.popup {
@@ -1623,6 +1624,7 @@ $sidebar-display: 'sidebar-display';
 
   .post-content {
     font-size: 1.03rem;
+    //text-align: justify; // add text-align config
   }
 
   footer {
