@@ -1,5 +1,5 @@
 ---
-title: Github Chirpy Page 변경내용 실시간 적용 방법
+title: Github 페이지 Chirpy 테마 변경내용 실시간 적용 방법
 author: jh
 date: 2023-04-23 19:53:20 +0900
 categories: [Tutorial, Chirpy]
