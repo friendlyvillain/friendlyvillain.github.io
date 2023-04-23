@@ -22,7 +22,7 @@ pin: true
 대부분의 경우, 방문자가 update 버튼을 클릭하도록 유도하는 것이 번거롭고, 수정된 내용이 실시간으로 GitHub 페이지에 잘 적용되었는지 확인하고 싶은 경우가 많을 것이다.
 Chripy 개발자 페이지에서 확인해보니 나와 같이 실시간으로 수정된 내용이 반영되기를 원하는 [사용자의 글](https://github.com/cotes2020/jekyll-theme-chirpy/issues/527#issuecomment-1079998986)을 확인할 수 있었고, 다음과 같이 service worker 설정 수정을 통해 커밋과 동시에 페이지 업데이트가 되도록 설정하여 해결할 수 있었다.
 
-> /assets/js/pwa/sw.js 의 기존 내용을 모두 삭제한 이후, 다음 코드를 추가
+> `/assets/js/pwa/sw.js`{: .filepath} 의 기존 내용을 모두 삭제한 이후, 다음 코드를 추가
 {: .prompt-info }
 
 ```js
