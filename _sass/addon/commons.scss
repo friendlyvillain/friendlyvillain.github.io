@@ -223,6 +223,7 @@ i {
   &.far,
   &.fas {
     @extend %no-cursor;
+    color: rgba(50, 255, 70, 0.99) // add
   }
 }
 
@@ -721,7 +722,7 @@ $sidebar-display: 'sidebar-display';
   overflow-y: auto;
   width: $sidebar-width;
   z-index: 99;
-  // background: var(--sidebar-bg);
+  background: var(--sidebar-bg);
   background: url('/assets/img/background/left_sidebar.jpg');
   background-size: 100% 100%;
   background-position: center;
@@ -792,7 +793,7 @@ $sidebar-display: 'sidebar-display';
 
   .site-subtitle {
     font-size: 95%;
-    //color: var(--sidebar-muted-color);
+    color: var(--sidebar-muted-color);
     line-height: 1.25rem;
     word-spacing: 1px;
     margin: 0.2rem 1.5rem 0.5rem 1.5rem;
@@ -801,10 +802,6 @@ $sidebar-display: 'sidebar-display';
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
-    a {
-      color: rgba(0, 0, 0, 0.9); // Add
-    }
   }
 
   .nav-link {
@@ -823,8 +820,7 @@ $sidebar-display: 'sidebar-display';
 
     &.active {
       .nav-link {
-        color: rgba(0, 0, 255, 0.99);
-        // color: var(--sidebar-active-color);
+        color: var(--sidebar-active-color);
       }
     }
 
@@ -923,6 +919,7 @@ $sidebar-display: 'sidebar-display';
 
       > i {
         @extend %clickable-transition;
+        color: rgba(26, 236, 240, 0.99) // add
       }
 
       &:hover > i {

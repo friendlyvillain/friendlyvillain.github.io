@@ -37,8 +37,10 @@
 
   /* Sidebar */
   --sidebar-bg: #eeeeee;
-  --sidebar-muted-color: #a2a19f;
-  --sidebar-active-color: #424242;
+  // --sidebar-muted-color: #a2a19f;
+  --sidebar-muted-color: rgb(0,0,0, 0.99);
+  // --sidebar-active-color: #424242;
+  --sidebar-active-color: rgba(241, 9, 241, 0.8);
   --nav-cursor-color: #757575;
   --sidebar-btn-bg: white;
 
