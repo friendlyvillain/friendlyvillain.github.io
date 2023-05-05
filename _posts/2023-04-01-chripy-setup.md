@@ -2,7 +2,7 @@
 title: Github 페이지 Chirpy 테마 적용 방법 (ver. 2023)
 author: jh
 date: 2023-04-01 22:40:00 +0900
-categories: [Tutorial, Chirpy]
+categories: [Git Page, Chirpy]
 tags: [git, jekyll, chirpy]
 comments: true
 pin: true
