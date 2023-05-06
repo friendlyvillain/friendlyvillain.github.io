@@ -21,7 +21,7 @@ Chripy 테마가 적용된 Github 페이지 생성을 위해 구글링을 하다
 
 가장 흔한 이슈가 자신의 Github Page repo에 커밋한 이후, 링크에 들어가면 다음과 같이 ---layout: home # Index page --- 만 보인다는 것이다.
 
-![Desktop View](/assets/img/posts/tutorial/page_error.png){: width="500" height="100" }
+![page-error](/assets/img/posts/tutorial/page_error.png){: width="500" height="100" }
 
 이에 대한 해결 방안으로 Github repo 설정에서 branch를 gh-page로 변경하라고 안내하고 있지만, 설정 화면에 들어가면 main branch 외에 아무것도 보이지 않는 것을 확인할 수 있다. 
 
