@@ -67,7 +67,7 @@ $$ \ v_{*}(s) = \max_{a}q_{*}(s, a) $$
 ## RL in Bellman Equation
 
 강화학습 문제에서 누적 보상을 최대로하는 Policy를 도출하는 과정은 결국 Bellman Equation을 푸는 과정이라고 할 수 있다. 
-이 떄, 크게 Agent가 MDP의 Dynamics를 알고 있는가 (**Model-based**)에 모르고 있는가 (**Model-free**)에 따라 Dynamic Programming 기법과 Monte Carlo 기법으로 풀이 방법이 나뉜다. 
+이 때, 크게 Agent가 **MDP의 Dynamics**를 알고 있는가 (**Model-based**)에 모르고 있는가 (**Model-free**)에 따라 Dynamic Programming 기법과 Monte Carlo 기법으로 풀이 방법이 나뉜다. 
 
 
 ## Reference
