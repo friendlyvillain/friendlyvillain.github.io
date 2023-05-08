@@ -33,6 +33,11 @@ $$ \ q_{\pi}(s, a) = \sum_{s'}\sum_{r}p(s', r|s, a) \left\{ r + \gamma v_{\pi}(s
 ## Optimal Policy
 State-Value Function 관점에서 최적 Policy는 어떤 State $s$ 부터 누적 보상값을 최대로하는 정책 $\pi^{\*}$ 를 따르는 경우, State-Value Function을 의미한다. Action-Value Function 관점에서 최적 Policy는 어떤 State $s$ 에서 Action $a$를 수행한 이후의 다음 State부터 누적 보상값을 최대로하는 정책 $ \pi^{\*} $ 를 따르는 경우, Action-Value Function을 의미한다. 2개의 Value Function의 차이는 State $s$부터 항상 최적의 Policy를 따르는가 (**Optimal State-Value Function**) 아니면 State $s$에서 한번은 임의의 Action의 수행을 허용하는가 (**Optimal Action-Value Function**)에 있다. 
 
+Agent가 Policy $\pi^{\*}$를 따르는 경우, 오직 최적 action을 수행하므로 $\pi^{\*}$는 아래와 같이 표현할 수 있다.
+
+$$ \pi^{*}(a|s) = 1 \ \text{if } a \ \text{is an } \textbf{optimal } \text{action, } \text{else} \ 0 $$
+
+
 ### Optimal State-Value Function
 
 
