@@ -77,11 +77,11 @@ post:
 # See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
 df:
   post:
-    strftime: '%b %e, %Y'
-    dayjs: 'll'
+    strftime: '%Y/%m/%d' # default: '%b %e, %Y'
+    dayjs: 'YYYY/MM/DD' # default: 'll'
   archives:
-    strftime: '%b'
-    dayjs: 'MMM'
+    strftime: '%Y/%m/%d' # default: '%b'
+    dayjs: 'YYYY/MM/DD' # default: 'MMM'
 
 # categories page
 categories:
