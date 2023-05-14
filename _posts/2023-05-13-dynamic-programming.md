@@ -3,7 +3,7 @@ title: Dynamic Programming
 author: jh
 date: 2023-05-13 17:07:25 +0900
 categories: [Machine Learning, Reinforcement Learning]
-tags: [ML, RL, Dyanmic Programming, MDP, Optimal Policy, State-Value Function, Bellman Equation, Policy Evaluation, Policy Improvement]
+tags: [ML, RL, Dyanmic Programming, MDP, Optimal Policy, State-Value Function, Bellman Equation, Policy Evaluation, Policy Improvement, Policy Control]
 math: true
 mermaid: true
 comments: true
@@ -21,7 +21,7 @@ DP Algorithm은 MDP에서 State-Value Function에 대한 Bellman Eq.를 풀어�
 DP Algorithm을 통해 MDP의 모든 state에 대하여 **State-Value Function을 도출**하고, 이를 통해 **Optimal Policy를 도출**한다.
 State-Value Funtion의 Bellman Eq.를 푸는 과정에서 Policy를 평가 (**Policy Evaluation**) 하고, Policy를 개선 (**Policy Improvement**) 하는 과정을 수행한다. 
 Policy Evaluation + Policy Improvement의 과정을 합쳐서 Policy를 제어 (**Policy Control**) 한다고 한다.
-DP 알고리즘에는 크게 Policy Iteration과 Value Iteration 방법이 있다. 
+DP 알고리즘에는 크게 [**Policy Iteration**](#policy-iteration)과 [**Value Iteration**](#value-iteration) 방법이 있다. 
 
 
 ### Policy Iteration
@@ -89,7 +89,7 @@ Value Iteration 알고리즘을 Psuedo Code로 나타내면 다음과 같다.
 _Value Iteration Pseudo Code_
 
 
-## 마치며
+## Conclusion
 DP 알고리즘에서 Policy Iteration과 Value Iteration 모두 Optimal Policy의 수렴성을 보장하지만 알고리즘의 복잡도 측면에서 Policy Iteration이 Value Iteration 방법보다 효율이 좋은 것으로 알려져 있다.  
 모든 이론이 동일하지만 글로 내용을 이해하는 것보다 구현을 통해 이론을 적용해보면 훨씬 수월하게 개념을 이해할 수 있다. 
 [다음 포스팅](https://friendlyvillain.github.io/posts/dp-example)에서는 Python 기반의 프로그래밍을 통해, 4 X 4 Grid World 문제에 대해 DP를 적용하여 풀어가는 예제를 다룬다.
