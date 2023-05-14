@@ -45,7 +45,7 @@ v_{k+1}(s) \leftarrow \sum_{s', r} p(s', r | s, \pi(s)) \left\{ r + \gamma v_k(s
 $$
 
 위의 수식에서 $k \rightarrow \infty$ 일 때, $v_k$ 는 $v_{\pi}$로 수렴 (Converge) 하고, 이를 통해 Policy에 대한 가치 함수를 추정할 수 있다.
-구현 관점에서 실제로 무한번을 반복할 수 없으므로, 임의의 작은 값 $\theta$ 에 대해, $| v_{k+1}(s) - v{k}(s) | < \theta$ 를 만족하면 Policy Evaluation을 위한 반복을 중단한다.
+구현 관점에서 실제로 무한번을 반복할 수 없으므로, 임의의 작은 값 $\theta$ 에 대해, $| v_{k+1}(s) - v_{k}(s) | < \theta$ 를 만족하면 Policy Evaluation을 위한 반복을 중단한다.
 
 - Policy Improvement
 
@@ -92,7 +92,7 @@ _Value Iteration Pseudo Code_
 ## 마치며
 DP 알고리즘에서 Policy Iteration과 Value Iteration 모두 Optimal Policy의 수렴성을 보장하지만 알고리즘의 복잡도 측면에서 Policy Iteration이 Value Iteration 방법보다 효율이 좋은 것으로 알려져 있다.  
 모든 이론이 동일하지만 글로 내용을 이해하는 것보다 구현을 통해 이론을 적용해보면 훨씬 수월하게 개념을 이해할 수 있다. 
-다음 포스팅에서는 Python 기반의 프로그래밍을 통해, 4 X 4 Grid World 문제에 대해 DP를 적용하여 풀어가는 예제를 다룰 예정이다.
+[다음 포스팅](https://friendlyvillain.github.io/posts/dp-example)에서는 Python 기반의 프로그래밍을 통해, 4 X 4 Grid World 문제에 대해 DP를 적용하여 풀어가는 예제를 다룬다.
 
 
 ## Reference
