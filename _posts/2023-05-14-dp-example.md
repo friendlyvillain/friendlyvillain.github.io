@@ -6,7 +6,7 @@ categories: [Machine Learning, Reinforcement Learning]
 tags: [ML, RL, Dyanmic Programming, Python, Grid World, MDP, Optimal Policy, State-Value Function, Bellman Equation, Policy Evaluation, Policy Improvement]
 math: true
 mermaid: true
-lastmod: 2023-05-18 17:53:20
+lastmod: 2023-05-18 17:53:20 +0900
 sitemap:
   changefreq: daily
   priority: 1.0
