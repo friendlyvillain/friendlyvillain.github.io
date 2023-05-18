@@ -6,6 +6,10 @@ categories: [Machine Learning, Reinforcement Learning]
 tags: [ML, RL, Dyanmic Programming, Python, Grid World, MDP, Optimal Policy, State-Value Function, Bellman Equation, Policy Evaluation, Policy Improvement]
 math: true
 mermaid: true
+lastmod: 2023-05-18 17:53:20
+sitemap:
+  changefreq: daily
+  priority: 1.0
 comments: true
 ---
 
@@ -245,7 +249,7 @@ if __name__ == "__main__":
 ### 코드 설명
 
 Grid_Env 클래스를 정의하고, inital policy와 inital value table을 초기화 한다. 
-Grid_Env 클래스의 주요 methods는 다음과 같다. 
+Grid_Env 클래스의 주요 method 목록은 다음과 같다. 
 
 - get_state()
 
