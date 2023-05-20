@@ -87,10 +87,9 @@ MDP 환경에 대해 임의의 Policy ($\pi_{0}$)로 초기화 하고, 모든 St
         A^{*} = \arg \max_{a} Q(S_t, a)
     $$
 
-    Greedy Action을 구한 이후, 다음 수식에 따라 $S_t$ 에서의 policy를 Update 한다. (Epsilon-Greedy) 
+    Greedy Action을 구한 이후, 다음 수식에 따라 $\forall a \in A(S_t)$에 대해, $S_t$ 에서의 policy를 Update 한다. (Epsilon-Greedy) 
 
     $$
-        \text{For all } a \in A(S_t), \\
         \pi(a|S_t) \leftarrow 
         \left\{ \begin{array} 
         {rcl}{1 - \epsilon + \frac{\epsilon}{|A(S_t)|}} & \mbox{for } a=A^{*} \\
