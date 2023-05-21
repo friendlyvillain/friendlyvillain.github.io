@@ -60,10 +60,16 @@ MDP 환경에 대해 임의의 Policy ($\pi_{0}$)로 초기화 하고, 모든 St
 - MC Control
     + Episode Generation
 
-    시작 State부터 종료 State까지 Policy를 따르는 Episode를 다음과 같이 생성하고, Terminal state 부터 역순으로 누적 Reward를 계산한다.
+    시작 State부터 종료 State까지 Policy를 따르는 Episode를 다음과 같이 생성한다.
 
     $$
     \pi: S_0, A_0, R_1, ..., S_{T-1}, A_{T-1}, R_{T}
+    $$
+
+    생성된 Episode에 따라 Terminal State 부터 역순으로 time step을 돌면서 누적 Reward를 계산한다.
+
+    $$
+    G_t = R_{t+1} + \gamma G_{t+1}
     $$
 
     + Policy Evaluation
