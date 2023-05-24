@@ -151,7 +151,7 @@ $$
 DP가 Model을 알고 있는 환경에서 Value Function을 계산 (Compute)하는 알고리즘이라면 MC는 Model을 모르고 있는 환경에서 Sampling을 통해 Value Function을 학습 (Learn)하는 알고리즘이라고 볼 수 있다.
 MC Control은 하나의 Episode가 온전히 종료되어야만 Action-Value Function을 업데이트할 수 있다는 한계가 있고, 이와 같은 한계를 극복하기 위해 Time-Difference (TD) 기법이 도입되었다.
 MC에서 사용한 개념은 DQN에 이르기 까지 Model-Free한 환경에서 강화학습 문제를 다루기 위한 토대가 된다.
-다음 포스팅에서는 Python 기반으로 Frozen Lake 환경에서 MC를 구현하는 예제를 다룬다.
+[다음 포스팅](https://friendlyvillain.github.io/posts/mc-example/)에서는 Python 기반으로 Frozen Lake 환경에서 MC를 구현하는 예제를 다룬다.
 
 ## Reference
 [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book.html)
