@@ -1,5 +1,5 @@
 ---
-title: Dynamic Programming Example
+title: Dynamic Programming Example - Grid World
 author: jh
 date: 2023-05-14 15:56:30 +0900
 categories: [Machine Learning, Reinforcement Learning]
