@@ -3,7 +3,7 @@ title: Bellman Equation & Optimal Policy
 author: jh
 date: 2023-05-07 14:07:25 +0900
 categories: [Machine Learning, Reinforcement Learning]
-tags: [ML, RL, MDP, State-Value function, Action-Value function, Bellman equation]
+tags: [ML, RL, MDP, State-Value Function, Action-Value Function, Bellman Equation]
 math: true
 mermaid: true
 comments: true

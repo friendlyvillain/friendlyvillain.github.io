@@ -11,9 +11,14 @@ comments: true
 
 ## Introduction
 
-본 포스팅에서는 Python 코드를 통해, Monte Carlo Method 알고리즘을 구현하는 내용을 다룬다. 
-앞선 포스팅에서 다룬 [Monte Carlo Control](https://friendlyvillain.github.io/posts/monte-carlo-method/#mc-policy-control) 알고리즘을 이용하여 OpenAI Gym의 Frozen Lake 환경에 대한 Value Function과 Optimal Policy를 도출한다.
+본 포스팅에서는 Python 코드를 통해, Monte Carlo (MC) Method 알고리즘을 구현하는 내용을 다룬다. 
+앞선 포스팅에서 다룬 [MC Control](https://friendlyvillain.github.io/posts/monte-carlo-method/#mc-policy-control) 알고리즘을 이용하여 OpenAI Gym의 Frozen Lake 환경에 대한 Value Function과 Optimal Policy를 도출한다.
 코드 구현을 위해 필요한 Python Package는 Gym, Numpy, Matplotlib 이다. 
-작성중...
+
 
 ## MDP Environment
+
+[Frozen Lake](https://www.gymlibrary.dev/environments/toy_text/frozen_lake/#frozen-lake)의 MDP 환경은 다음과 같은 4X4 Grid World와 유사하며, 총 16개의 Grid 중 4개는 Hole이 있는 형태이다. 
+
+
+위와 같은 MDP 환경에서 Agent의 목표는 Hole에 빠지지 않고, 시작지점 부터 목표 지점까지 가는 것이다. 
