@@ -253,7 +253,7 @@ if __name__ == "__main__":
 Frozen Lake 환경에 dynamics를 주기 위해 **is_slippery=True**로 하여, gym 모듈을 사용하여 다음과 같은 MDP 환경을 만든다.
 
 ```python
-    env = gym.make('FrozenLake-v1', is_slippery=True)
+env = gym.make('FrozenLake-v1', is_slippery=True)
 ```
 
 MC Control Algorithm을 적용하기 위한 MC_Agent 클래스를 정의하고 initial policy와 action-value function을 초기화 한다.
