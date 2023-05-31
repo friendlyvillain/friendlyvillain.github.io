@@ -3,7 +3,7 @@ title: Monte Carlo Method Example - Frozen Lake
 author: jh
 date: 2023-05-24 21:36:29 +0900
 categories: [Machine Learning, Reinforcement Learning]
-tags: [ML, RL, Monte Carlo, Python, Model-Free, Frozen Lake, MDP, Optimal Policy, Action-Value Function, Bellman Equation, Policy Evaluation, Policy Improvement, Policy Control]
+tags: [ML, RL, Monte Carlo, Python, Model-Free, Frozen Lake, MDP, Optimal Policy, Action-Value Function, Q-function, Bellman Equation, Policy Evaluation, Policy Improvement, Policy Control]
 math: true
 mermaid: true
 comments: true
@@ -65,11 +65,11 @@ $$ p(s'=5, r=-1 | s=9, a=0) = \frac{1}{3} $$
 
 $$ p(s'=13, r=0 | s=9, a=0) = \frac{1}{3} $$
 
-### Why use Action-Value Function?
+### Why use Action-Value Function (Q-function)?
 
 Frozen Lake의 경우 비교적 단순한 환경이므로 각 State에서 State Transition Probability를 통해 State-Value Function을 구할 수 있다. 
 그러나 특정 State에 대해서 Action에 따라 State Transition이 결정되는 것이 아니라 확률에 따라 State Transition이 결정되기 때문에 State-Value Function을 통한 Optimal Policy를 도출할 수 없다. (Model-Free)
-따라서, 각 State에서 행동 가능한 Action에 대한 가치를 판단하는 Action-Value Function을 통해 Optimal Policy를 도출한다.
+따라서, 각 State에서 행동 가능한 Action에 대한 가치를 판단하는 Q-function을 통해 Optimal Policy를 도출한다.
 
 ## Implementation
 
@@ -256,7 +256,7 @@ Frozen Lake 환경에 dynamics를 주기 위해 **is_slippery=True**로 하여, 
 env = gym.make('FrozenLake-v1', is_slippery=True)
 ```
 
-MC Control Algorithm을 적용하기 위한 MC_Agent 클래스를 정의하고 initial policy와 action-value function을 초기화 한다.
+MC Control Algorithm을 적용하기 위한 MC_Agent 클래스를 정의하고 initial policy와 Q-function을 초기화 한다.
 MC_Agent 클래스의 주요 method는 다음과 같다.
 
 - get_episode()

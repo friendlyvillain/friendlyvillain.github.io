@@ -3,7 +3,7 @@ title: Bellman Equation & Optimal Policy
 author: jh
 date: 2023-05-07 14:07:25 +0900
 categories: [Machine Learning, Reinforcement Learning]
-tags: [ML, RL, MDP, State-Value Function, Action-Value Function, Bellman Equation]
+tags: [ML, RL, MDP, State-Value Function, Action-Value Function, Q-function, Bellman Equation]
 math: true
 mermaid: true
 comments: true
@@ -11,7 +11,7 @@ comments: true
 
 ## Bellman Equation
 특정 시점 $t$에서의 Value Function을 다음 시점 $t+1$에서의 Value Function과의 관계식으로 표현할 수 있는 수식을 Bellman Equation이라 한다. 
-앞선 [MDP 포스트](https://friendlyvillain.github.io/posts/mdp/#relationship-between-state-value-function-and-action-value-function) 에서 도출한 State-Value function과 Action-Value function 사이의 다음 관계식을 참고하면 각각의 Value Function 또한 Bellman Equation을 따르는 관계식으로 표현할 수 있다. 
+앞선 [MDP 포스트](https://friendlyvillain.github.io/posts/mdp/#relationship-between-state-value-function-and-action-value-function) 에서 도출한 State-Value function과 Action-Value function (Q-function) 사이의 다음 관계식을 참고하면 각각의 Value Function 또한 Bellman Equation을 따르는 관계식으로 표현할 수 있다. 
 
 
 $$ \ v_{\pi}(s) = \sum_{a} \pi(a|s)q_{\pi}(s, a) $$

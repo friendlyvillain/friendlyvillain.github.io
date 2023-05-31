@@ -3,7 +3,7 @@ title: Monte Carlo Method
 author: jh
 date: 2023-05-18 18:07:37 +0900
 categories: [Machine Learning, Reinforcement Learning]
-tags: [ML, RL, Monte Carlo, Model-Free, MDP, Optimal Policy, State-Value Function, Bellman Equation, Policy Evaluation, Policy Improvement, Policy Control]
+tags: [ML, RL, Monte Carlo, Model-Free, MDP, Optimal Policy, Action-Value Function, Q-function, Bellman Equation, Policy Evaluation, Policy Improvement, Policy Control]
 math: true
 mermaid: true
 comments: true
@@ -37,16 +37,16 @@ Sampling을 통해 Value Function을 구하는 과정은 마치 주사위 2개�
 즉, 우리는 이미 2개의 주사위를 구렸을 때 눈의 합의 기대값이 7이라는 것을 알고 있지만, 실제로 주사위 2개를 굴린 이후 눈의 합을 구하는 과정 (Episode) 을 반복 수행한 이후, 평균을 낸 값도 Episode의 개수가 많아질 수록 큰 수의 법칙에 의해 7에 근사한 값이 나오는 원리와 동일하다. 
 
 
-### Action-Value Function in MC
+### Action-Value Function (Q-function) in MC
 DP에서는 가치 함수으로 State-Value Function을 사용하였다. 
-하지만 MC에서는 가치 함수로 Action-Value Function을 주로 사용한다.
+하지만 MC에서는 가치 함수로 Action-Value Function (Q-function)을 주로 사용한다.
 DP에서는 Model을 알고 있기 때문에 State-Value Function이 있으면 최적 Policy를 도출할 수 있지만, Model을 모르는 경우에는 State-Value Function 자체만으로는 최적 Policy를 결정할 수 없기 때문이다. 
 즉, Agent가 state transition probabilty를 알고 있다면 State-Value Function을 통해, 최적의 State를 향해 나아가는 Action을 결정할 수 있지만 Agent가 state transition probability를 알 수 없다면 State-Value Function 만으로 최적의 State를 향해 나아가는 Action을 결정할 수 없다. 
-따라서, MC를 포함하여 Model-free한 환경에서는 State별 수행가능한 모든 Action에 대한 Action-Value Function을 가치함수로 사용한다.
+따라서, MC를 포함하여 Model-free한 환경에서는 State별 수행가능한 모든 Action에 대한 Q-function을 가치함수로 사용한다.
 
 
 ### MC Policy Control
-MC에서는 가치함수로 Action-Value Function을 사용한다는 점을 제외하고, MC에서의 Policy Control은 DP에서 Policy Control과 매우 유사하다.다음과 같이 MC Control에서는 Policy에 따라 Action-Value Function을 평가 (Evaluation) 하고, Greedy Policy에 의해 Policy를 업데이트 (Improvement) 한다.
+MC에서는 가치함수로 Q-function을 사용한다는 점을 제외하고, MC에서의 Policy Control은 DP에서 Policy Control과 매우 유사하다.다음과 같이 MC Control에서는 Policy에 따라 Q-function을 평가 (Evaluation) 하고, Greedy Policy에 의해 Policy를 업데이트 (Improvement) 한다.
 
 ![mc-control](/assets/img/posts/mc/mc_control.png){: width="600" height="400" }
 _MC Control_
@@ -55,7 +55,7 @@ Policy Control을 할 때, State-Action Pair가 중복되는 경우, 가장 첫�
 
 - Initialization
 
-MDP 환경에 대해 임의의 Policy ($\pi_{0}$)로 초기화 하고, 모든 State에 대하여 Action-value function ($q_0(s, a)$)을 임의의 값으로 초기화 한다. 
+MDP 환경에 대해 임의의 Policy ($\pi_{0}$)로 초기화 하고, 모든 State에 대하여 Q-function ($q_0(s, a)$)을 임의의 값으로 초기화 한다. 
 
 - MC Control
     + Episode Generation
@@ -74,7 +74,7 @@ MDP 환경에 대해 임의의 Policy ($\pi_{0}$)로 초기화 하고, 모든 St
 
     + Policy Evaluation
     
-    특정 Time-step $t$에서의 State-Action Pair $(S_t, A_t)$ 가 해당 Episode의 $0 \sim (t-1)$ 까지의 time-step에서 발생하지 않았을 경우 (first-visit), 현재까지 Episode에서 구해진 Action-Value Function $Q(S_t, A_t)$과 평균을 취하여 값을 업데이트 한다.
+    특정 Time-step $t$에서의 State-Action Pair $(S_t, A_t)$ 가 해당 Episode의 $0 \sim (t-1)$ 까지의 time-step에서 발생하지 않았을 경우 (first-visit), 현재까지 Episode에서 구해진 Q-function $Q(S_t, A_t)$과 평균을 취하여 값을 업데이트 한다.
 
     실제 알고리즘을 구현하는 경우에는 평균을 취하지 않고 다음과 같은 수식을 통해 업데이트 한다. 
 
@@ -149,7 +149,7 @@ $$
 
 ## Conclusion
 DP가 Model을 알고 있는 환경에서 Value Function을 계산 (Compute)하는 알고리즘이라면 MC는 Model을 모르고 있는 환경에서 Sampling을 통해 Value Function을 학습 (Learn)하는 알고리즘이라고 볼 수 있다.
-MC Control은 하나의 Episode가 온전히 종료되어야만 Action-Value Function을 업데이트할 수 있다는 한계가 있고, 이와 같은 한계를 극복하기 위해 Time-Difference (TD) 기법이 도입되었다.
+MC Control은 하나의 Episode가 온전히 종료되어야만 Q-function을 업데이트할 수 있다는 한계가 있고, 이와 같은 한계를 극복하기 위해 Time-Difference (TD) 기법이 도입되었다.
 MC에서 사용한 개념은 DQN에 이르기 까지 Model-Free한 환경에서 강화학습 문제를 다루기 위한 토대가 된다.
 [다음 포스팅](https://friendlyvillain.github.io/posts/mc-example/)에서는 Python 기반으로 Frozen Lake 환경에서 MC를 구현하는 예제를 다룬다.
 
