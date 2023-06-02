@@ -61,10 +61,10 @@ Old Policy와 Greedy Policy가 동일하지 않다면 업데이트된 Policy를 
 
 - Pseudo Code
 
-Policy Iteration 알고리즘을 Psuedo Code로 나타내면 다음과 같다.
+Policy Iteration 알고리즘을 Pseudo Code로 나타내면 다음과 같다.
 
 ![policy-iteration-pseudo-code](/assets/img/posts/dp/policy_iteration_algo.png){: width="600" height="800" }
-_Policy Iteration Pseudo Code_
+_Policy Iteration Algorithm Pseudo Code_
 
 
 ### Value Iteration
@@ -83,10 +83,10 @@ $$
 
 - Pseudo Code
 
-Value Iteration 알고리즘을 Psuedo Code로 나타내면 다음과 같다.
+Value Iteration 알고리즘을 Pseudo Code로 나타내면 다음과 같다.
 
 ![value-iteration](/assets/img/posts/dp/value_iteration_algo.png){: width="600" height="400" }
-_Value Iteration Pseudo Code_
+_Value Iteration Algorithm Pseudo Code_
 
 
 ## Conclusion
