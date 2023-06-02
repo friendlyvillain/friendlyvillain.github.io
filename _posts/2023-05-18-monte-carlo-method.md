@@ -105,10 +105,10 @@ MDP 환경에 대해 임의의 Policy ($\pi_{0}$)로 초기화 하고, 모든 St
     
 
 ### Pseudo Code
-MC Control 알고리즘을 Psuedo Code로 나타내면 다음과 같다.
+MC Control 알고리즘을 Pseudo Code로 나타내면 다음과 같다.
 
 ![mc-algorithm](/assets/img/posts/mc/mc_algo.png){: width="600" height="800" }
-_MC Control Pseudo Code_
+_MC Control Algorithm Pseudo Code_
 
 ## Incremental Implementation
 어떤 State-Action Pair에 대해, 누적 보상값의 평균은 다음과 같이 주어진다.
