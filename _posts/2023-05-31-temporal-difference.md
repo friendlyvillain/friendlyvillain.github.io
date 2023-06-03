@@ -88,7 +88,7 @@ _Q-learning Algorithm Pseudo Code_
 ## Conclusion
 TD Contorl은 DP와 MC의 장점을 결합하여 Model Free한 MDP 환경에서 Episode가 종료되지 않더라도 Model을 업데이트 할 수 있다는 특징이 있다. 
 TD Control 알고리즘은 향후 발전된 강화학습의 알고리즘의 형태와 원리가 매우 유사하다.
-[다음 포스팅](#)에서는 Python 기반으로 Frozen Lake 환경에서 TD Control 알고리즘을 구현하는 예제를 다룬다.
+[다음 포스팅](https://friendlyvillain.github.io/posts/td-example/)에서는 Python 기반으로 Frozen Lake 환경에서 TD Control 알고리즘을 구현하는 예제를 다룬다.
 
 
 ## Reference
