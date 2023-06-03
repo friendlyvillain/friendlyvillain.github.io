@@ -114,6 +114,8 @@ class MC_Agent:
 
     def _initialize(self):
         self.action_value_table = np.random.uniform(0, 1, (self.num_states, self.num_actions))
+        self.action_value_table[self.state_terminal] = 0
+
         self.policy = np.random.randint(self.num_actions, size=(self.num_states, 1))
         self.policy[self.state_terminal] = -1
 
