@@ -288,6 +288,7 @@ Final Greedy Policy:
 ## Conclusion
 본 포스팅에서는 Model-Free한 MDP 환경에서 MC Control 에 대한 Pseudo Code를 간단한 Frozen Lake 환경에 대한 Example을 통해 Python을 이용하여 구현하였다.
 MC Control은 Model-Free한 환경에서도 적용 가능하다는 특징이 있으나, 1개의 Episode가 반드시 종료되어야 Policy가 업데이트 될 수 있다는 한계가 있다. 
+이러한 이유 때문에 Frozen Lake의 예제에서도 MC Control 알고리즘을 적용하였을 때, Q-function이 제대로 학습되지 않을 경우, 정확도가 높지 않는 경우가 발생하기도 한다.
 다음 포스팅에서는 이러한 MC Control의 한계를 개선하기 위한 Temporal-Difference (TD) 방식에 대해 다룬다.
 
 ## Reference
