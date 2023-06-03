@@ -3,7 +3,7 @@ title: Temporal Difference
 author: jh
 date: 2023-05-31 20:25:56 +0900
 categories: [Machine Learning, Reinforcement Learning]
-tags: [ML, RL, Temporal-Difference, Model-Free, MDP, Optimal Policy, Action-Value Function, Q-function, Bellman Equation, On-policy, Off-policy]
+tags: [ML, RL, Temporal-Difference, Model-Free, MDP, Optimal Policy, Action-Value Function, Q-function, Bellman Equation, On-policy, Off-policy, SARSA, Q-learning]
 math: true
 mermaid: true
 comments: true
@@ -23,7 +23,8 @@ TD Control 알고리즘의 기본적인 형태와 원리는 DNN과 결합하여 
 MC와 마찬가지로 Model-Free한 환경에 적용하기 위해 가치함수로 Q-function을 사용한다. 
 TD는 bootstrap을 통해 Episode가 종료되지 않더라도 Model을 업데이트 할 수 있고, 본 포스팅에서는 가장 기본적인 형태인 **매 time-step마다 Model을 업데이트** 하는 TD control Algorithm을 다룬다. 
 MC와 다르게 매 time step마다 State
-Q-function을 업데이트 하는 방법에 따라 on-policy TD Control Algorithm을 SARSA라 부르고, off-policy TD Control Algorithm을 Q-learning이라 부른다. 
+Q-function을 업데이트 하는 방법에 따라 on-policy TD Control Algorithm을 [**SARSA**](#sarsa-on-policy-td-control-algorithm)라 부르고, off-policy TD Control Algorithm을 [**Q-learning**](#q-learning-off-policy-td-control-algorithm)이라 부른다. 
+
 
 ### On-policy vs Off-policy
 Agent가 직접 Action을 수행하는 policy를 **Behavior policy**라 하고, 가치를 evaluate하고 improve 하기 위한 policy를 **Target policy**라 한다.
@@ -33,12 +34,14 @@ Agent가 직접 Action을 수행하는 policy를 **Behavior policy**라 하고, 
 - Behavior Policy: $ b(a\|s) $
 - Target Policy: $ \pi(a\|s) $
 
-Behavior policy와 Target policy가 동일한 경우 On-policy control이라 부르며, Behavior Policy와 Target Policy가 다른 경우 Off-policy control이라 부른다. 
+Behavior policy와 Target policy가 동일한 경우 ($ b(a|s)=\pi(a|s) $), On-policy control이라 부른다.
+반대로 Behavior Policy와 Target Policy가 다른 경우 ($ b(a|s) \neq \pi(a|s) $), Off-policy control이라 부른다. 
 On-policy control의 경우, Q-function을 업데이트 할 때, Agent가 Next State에서 수행하는 Policy (Target Policy)는 현재 Policy (Behavior Policy)를 그대로 따른다.
 반면, Off-policy control의 경우, Q-function을 업데이트 할 때, Agent가 Next State에서 수행하는 Policy (Target Policy)는 현재 Policy (Behavior Policy)를 그대로 따르지 않는다. (e.g., Greedy Action)
 On-policy control의 경우 local optimal에 빠질 가능성이 있는 반면 수렴이 상대적으로 빠르다.
 반대로, Off-policy control의 경우 local optimal에 빠지지 않지만 variance가 크기 때문에 수렴이 상대적으로 느리다.
 글로 이해가 되지 않는다면 본 포스팅에서 각각의 TD Control Algorithm에 대해 Q-function 업데이트를 위한 수식을 보면 쉽게 이해가 가능할 것이다.
+
 
 ### SARSA: On-Policy TD Control Algorithm
 
