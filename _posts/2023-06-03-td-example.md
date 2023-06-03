@@ -262,3 +262,16 @@ SARSA와 Q-learning 모두 얻어진 Greedy Policy에 따라 Frozen Lake를 수�
 
 **연산 환경에 따라 도달되는 Policy와 정확도에는 차이가 있을 수 있으나, MC와 다르게 TD를 적용할 경우 최종적으로 얻어진 Greedy Policy가 높은 정확도를 보이는 경우가 훨씬 많아지게 된다.**
 
+
+## Conclusion
+본 포스팅에서는 Model-Free한 MDP 환경에서 TD Control 에 대한 Pseudo Code를 간단한 Frozen Lake 환경에 대한 Example을 통해 Python을 이용하여 구현하였다.
+TD Control은 MC Control과 달리 Episode가 종료되지 않더라도 Q-function을 업데이트 할 수 있다는 장점이 있다. 
+Frozen Lake와 같이 간단한 환경에서는 On-policy TD Control (SARSA)과 Off-policy TD Control (Q-learning) 모두 학습된 결과가 비슷하지만 일반적인 경우 Q-learning의 학습 효율이 더욱 좋은 것으로 알려져 있다. 
+TD Control의 경우에도 한계가 존재하는데 이는 Discrete한 State에만 적용이 가능한 알고리즘이라는 것이다. 
+따라서, State의 개수가 매우 크게 증가하거나 Continuous State 환경인 경우에는 TD Control을 적용할 수 없다는 한계가 있다.
+이를 보완하기 위해, TD Control과 Neural Network (NN)을 결합한 DQN (Deep Q Network) 알고리즘이 도입되었다. 
+DQN은 TD Control의 형태와 구현이 매우 유사하기 때문에 TD Control을 이해하였다면 쉽게 구현이 가능하다.
+다음 포스팅에서는 이러한 Continuous State를 핸들링하기 위한 강화학습 알고리즘에 대해 다룬다.
+
+## Reference
+[Frozen Lake Description](https://www.gymlibrary.dev/environments/toy_text/frozen_lake/#frozen-lake)
