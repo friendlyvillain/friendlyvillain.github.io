@@ -22,7 +22,6 @@ TD Control 알고리즘의 기본적인 형태와 원리는 DNN과 결합하여 
 
 MC와 마찬가지로 Model-Free한 환경에 적용하기 위해 가치함수로 Q-function을 사용한다. 
 TD는 bootstrap을 통해 Episode가 종료되지 않더라도 Model을 업데이트 할 수 있고, 본 포스팅에서는 가장 기본적인 형태인 **매 time-step마다 Model을 업데이트** 하는 TD control Algorithm을 다룬다. 
-MC와 다르게 매 time step마다 State
 Q-function을 업데이트 하는 방법에 따라 on-policy TD Control Algorithm을 [**SARSA**](#sarsa-on-policy-td-control-algorithm)라 부르고, off-policy TD Control Algorithm을 [**Q-learning**](#q-learning-off-policy-td-control-algorithm)이라 부른다. 
 
 
