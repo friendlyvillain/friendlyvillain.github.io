@@ -49,15 +49,27 @@ Cartpole 환경에서 State는 다음과 같은 총 4개의 성분으로 구성�
 DQN을 구현할 때, 입력과 출력의 차원 (dimension)만 MDP 환경에 맞게 설정하면 DNN의 hidden layer 구조는 자유롭게 설정 가능하다. 
 먼저, DQN의 input dimension은 state의 차원과 동일하다.
 다음으로, DQN의 output dimension은 MDP의 Action Space 개수와 동일하다. 
+DQN의 입출력 차원에 대한 개념은 [다음 절](#action-value-function-q-function-in-dqn)에서 더 자세히 설명한다.
 
 위의 Cartpole 예제에서 DQN input의 차원은 $1 \times 4$의 vector가 되며, output의 차원은 $1 \times 2$의 vector가 된다.
-만약, state가 더 복잡한 Matrix 형태, Cubic 형태로 구성된다면 DQN의 input 또한 state의 차원과 동일하게 Matrix 형태, Cubic 형태로 구성하면 된다.
+Cartpole 예제에서 state를 4개의 성분으로 구성된 vector로 사용하지 않고, 관찰한 시점에서의 ($3 \times W \times H$) 차원의 RGB 이미지를 state로 구성한다면 DQN의 input 차원 또한 ($3 \times W \times H$) 크기의 데이터를 input으로 받는 Convolutional Neural Network (CNN)의 구조와 동일해진다. (이 경우에도 output 차원은 동일하다.)
+따라서, state가 더 복잡한 Matrix 형태, Cubic 형태로 구성된다면 DQN의 input 또한 state의 차원과 동일하게 Matrix 형태, Cubic 형태로 구성하면 된다.
 
 ### Action-Value function (Q-function) in DQN
 
-이전 포스팅에서 다룬 Q-table에서는 특정 state에서 취한 action에 대한 state-action pair에 대한 값을 저장하였다.
+이전 포스팅에서 다룬 Q-table에서는 관찰한 state에서 취한 action에 대한 state-action pair (Q-value)에 대한 값을 업데이트 하였다.
+DQN의 경우에는 관찰한 state를 설계한 NN 모델에 입력값으로 넣은 출력 결과를 Q-value 값으로 사용한다.
+앞선 절에서 언급하였듯이 DQN의 출력 차원은 Action space의 크기와 동일한 이유는 이는 각각의 결과가 관찰한 state에 대한 Q-value를 의미하기 때문이다.
+즉, continuous state의 경우에는 학습 과정에서 모든 state를 관찰할 수 없더라도 충분히 다양한 state에 대해 DQN 모델이 학습되었다면 학습 과정에서 경험하지 못했던 state가 입력으로 들어오더라도 정확한 결과를 도출해낼 수 있다.
+결국, continuous state 또한 무수히 많은 discrete state의 집합이기 때문에 다양한 discrete state를 경험하며 DQN이 학습되었다면 마치 supervised learning의 원리와 같이 경험해보지 못한 state에 대해서도 높은 정확도를 보이게 되는 것이다.    
+
+여기까지 설명한 DQN의 입출력 차원을 왜 state의 차원과 action space의 크기로 정의하는지 그 원리를 이해하였다면 (원리를 정화히 이해하지 못하더라도), DQN 모델을 정의하여 학습을 시키면 어느정도 reasonable한 결과를 얻을 수 있을 것이다. 
+추가로 DQN의 성능을 향상시키기 위하여 강화학습을 접하였다면 누구나 접했을 정도로 유명한 **Human-level control through deep reinforcement learning**에서 다음과 같은 **Target Network**와 **Replay Buffer** 개념이 도입되었다.
 (작성중)
 
+- Target Network
+
+- Replay Buffer
 
 ## Reference
 V. Mnih, K. Kavukcuoglu, D. Silver et al., “Human-level control through deep reinforcement learning,” Nature, vol. 518, no. 7540, pp. 529–533, 2015.
