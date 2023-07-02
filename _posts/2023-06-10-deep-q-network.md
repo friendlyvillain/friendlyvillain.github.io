@@ -17,7 +17,7 @@ TD Control Algorithm을 통해 Model-Free한 환경에서 매 time-step 마다 A
 본 포스팅에서는 Action은 Discrete 하지만, **State는 연속적 (Continuous)**인 경우에 대해 적용할 수 있는 알고리즘인 Deep Q Network (DQN) 에 대해 다루고, Action까지 Continous한 경우에 대한 알고리즘은 차후 포스팅에서 다룬다.
 
 DQN은 Q-learning과 기계학습에서 신경망 (Neural Network, NN)를 결합한 알고리즘으로 Q-function을 구하기 위해 신경망의 input으로 state를 사용한다는 점을 제외하고 Q-function을 구하는 수식 자체는 Q-learning과 동일하다.
-본 포스팅에서는 DQN에 있어서 가장 유명하다고도 볼 수 있는 Nature에 개제된 논문인 "**Human-level control through deep reinforcement learning**"에서 다룬 DQN 알고리즘과 그 원리에 대해 다룬다.
+본 포스팅에서는 DQN 성능에 있어 놀라운 발전을 보여준 Nature에 개제된 논문 [Human-level control through deep reinforcement learning](#1)에서 다룬 DQN 알고리즘과 그 원리에 대해 다룬다.
 DQN에서는 학습의 효율 개선을 위한 다음 2가지 특징이 추가된 점이 Q-learning에서 가장 크게 달라졌다고 볼 수 있다.
 
 - Target Network
@@ -64,12 +64,45 @@ DQN의 경우에는 관찰한 state를 설계한 NN 모델에 입력값으로 �
 결국, continuous state 또한 무수히 많은 discrete state의 집합이기 때문에 다양한 discrete state를 경험하며 DQN이 학습되었다면 마치 supervised learning의 원리와 같이 경험해보지 못한 state에 대해서도 높은 정확도를 보이게 되는 것이다.    
 
 여기까지 설명한 DQN의 입출력 차원을 왜 state의 차원과 action space의 크기로 정의하는지 그 원리를 이해하였다면 (원리를 정화히 이해하지 못하더라도), DQN 모델을 정의하여 학습을 시키면 어느정도 reasonable한 결과를 얻을 수 있을 것이다. 
-추가로 DQN의 성능을 향상시키기 위하여 강화학습을 접하였다면 누구나 접했을 정도로 유명한 **Human-level control through deep reinforcement learning**에서 다음과 같은 **Target Network**와 **Replay Buffer** 개념이 도입되었다.
-(작성중)
+추가로 DQN의 성능을 향상시키기 위하여 강화학습을 접하였다면 누구나 접했을 정도로 유명한 논문 [Human-level control through deep reinforcement learning](#1)에서 다음과 같은 **Target Network**와 **Replay Buffer** 개념이 도입되었다.
 
 - Target Network
 
+앞선 [Q-learning](https://friendlyvillain.github.io/posts/temporal-difference/#q-learning-off-policy-td-control-algorithm) 포스팅에서 다루었던 Q-function을 업데이트하는 수식은 다음과 같다. 
+
+$$
+Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left[ R_{t+1} + \gamma \max_{a'}Q(S_{t+1}, a') - Q(S_t, A_t) \right]
+$$
+
+본 포스팅의 서론에서 소개하였듯이 DQN에서도 Q-learning과 마찬가지로 Q-Network를 업데이트하기 위해 동일한 수식을 사용한다. 
+위의 수식에서 알 수 있듯이, 최종적인 학습을 하기 위한 Loss function은 다음과 같다.
+
+$$
+L = R_{t+1} + \gamma \max_{a'}Q(S_{t+1}, a') - Q(S_t, A_t)
+$$
+
+1개의 Q-Network만 사용할 경우, 위의 수식에서 Q-Network를 업데이트하기 위해 $S_{t+1}$ 에서의 Q-value를 구할 때 사용하는 Q-Network ($\max_{a'}Q(S_{t+1}, a'$) 또한 학습 단계마다 업데이트되는 것을 알 수 있다.
+따라서 원래 목표로 하던 $Q(S_t, A_t)$를 업데이트가 다른 $S_{t+1}$ 에서의 Q-value에도 영향을 미쳐 학습이 불안정해지는 문제가 있다. 
+이를 해결하기 위해 Target Network라는 별도의 Q-Network를 추가로 두었고, 일정 학습 단계마다 텀을 두어 Target Network를 업데이트 하도록 하였다. 
+즉, 원하는 Q-Network를 구성하는 파라미터를 $\theta$라 할 때, Target Network를 구성하는 파라미터를 $\theta^{-}$라 하면 Loss function은 다음과 같이 나타낼 수 있다.
+
+$$
+L = R_{t+1} + \gamma \max_{a'}Q(S_{t+1}, a' | \theta^{-}) - Q(S_t, A_t | \theta)
+$$
+
+Target network가 학습 network를 계속 추적할 수 있도록, $\theta^{-}$는 일정 학습 단계 주기에 따라 업데이트 시켜준다. 
+가장 단순한 업데이트 방법은 $\theta^{-}$를 $\theta$로 치환시키는 방법이고, 경우에 따라 일부만 $\theta$를 따라갈 수 있도록 하는 soft update 방식을 사용하기도 한다. 
+
 - Replay Buffer
 
+학습의 불안정성 문제를 해결하기 위해, Target Network를 도입하였지만 이것만으로는 충분하지 않다. 
+DQN 또한 TD 방식으로 동작하는 알고리즘이므로 만약 time-step마다 Q-Network를 업데이트한다면 $S_t$에서의 경험과 $S_{t+1}$에서의 경험은 서로 밀접하게 연관되어 있어 업데이트가 불안정해질 수 있다. 
+따라서 이를 해결하기 위해 time-step마다 학습하는 것이 아니라 Replay buffer (혹은 Experience memory)를 두어, ($S_t$, $A_t$, $R_{t+1}$, $S_{t+1)$) set을 저장해둔 이후 buffer에 일정 크기 이상의 경험이 축적되었을 경우에만 일정 batch 만큼 추출하여 학습을 진행하도록 한다. 
+
+Replay buffer는 FIFO (First-In-First-Out)의 큐 (Queue) 형태의 자료구조를 갖는 buffer로 설정한 buffer 크기 이상의 경험이 들어온 경우, 가장 오래된 경험을 폐기하고 가장 최신 경험을 저장한다. 
+
+
+
 ## Reference
+### [1] 
 V. Mnih, K. Kavukcuoglu, D. Silver et al., “Human-level control through deep reinforcement learning,” Nature, vol. 518, no. 7540, pp. 529–533, 2015.
