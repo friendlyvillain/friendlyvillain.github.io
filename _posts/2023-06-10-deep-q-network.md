@@ -99,7 +99,7 @@ Target network가 학습 network를 계속 추적할 수 있도록, $\theta^{-}$
 
 학습의 불안정성 문제를 해결하기 위해, Target Network를 도입하였지만 이것만으로는 충분하지 않다. 
 DQN 또한 TD 방식으로 동작하는 알고리즘이므로 만약 time-step마다 Q-Network를 업데이트한다면 $S_t$에서의 경험과 $S_{t+1}$에서의 경험은 서로 밀접하게 연관되어 있어 업데이트가 불안정해질 수 있다. 
-따라서 이를 해결하기 위해 매 time-step마다 학습하는 것이 아니라 Replay buffer (혹은 Experience memory)를 두어, ($S_t$, $A_t$, $R_{t+1}$, $S_{t+1)$) set을 저장해둔 이후 buffer에 일정 크기 이상의 경험이 축적되었을 경우에만 정해진 batch size 만큼 Replay buffer에서 임의로 추출하여 학습을 진행하도록 한다. 
+따라서 이를 해결하기 위해 매 time-step마다 학습하는 것이 아니라 Replay buffer (혹은 Experience memory)를 두어, ($S_t$, $A_t$, $R_{t+1}$, $S_{t+1}$) set을 저장해둔 이후 buffer에 일정 크기 이상의 경험이 축적되었을 경우에만 정해진 batch size 만큼 Replay buffer에서 임의로 추출하여 학습을 진행하도록 한다. 
 
 Replay buffer는 FIFO (First-In-First-Out)의 큐 (Queue) 형태의 자료구조를 갖는 buffer로 설정한 buffer 크기 이상의 경험이 들어온 경우, 가장 오래된 경험을 폐기하고 가장 최신 경험을 저장한다. 
 
