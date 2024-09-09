@@ -1,5 +1,5 @@
 ---
-title: DQN example
+title: DQN example - Cartpole
 author: jh
 date: 2023-07-01 19:22:32 +0900
 categories: [Machine Learning, Reinforcement Learning]
