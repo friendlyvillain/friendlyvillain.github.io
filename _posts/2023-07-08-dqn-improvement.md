@@ -42,6 +42,10 @@ $$
 위와 같이 기존 DQN의 over-estimation 문제를 해결하는 것만으로도 높은 성능 향상이 이루어졌음을 [[1]](#1)에서 보였다.   
 
 
+## 3. Dueling Architecture 
+
+
+
 ## Reference
 ### [1] 
 H. van Hasselt, A. Guez, and D. Silver, "Deep reinforcement learning with double Q-learning," in Proc. 30th AAAI Conf. Artif. Intell. (AAAI), 2016, pp. 2094-2100.
