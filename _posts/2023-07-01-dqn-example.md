@@ -440,7 +440,7 @@ if __name__ == '__main__':
 
 Main 함수를 실행시켜 학습 episode 동안 누적된 보상에 대한 결과를 출력하면 다음과 같다. 
 
-![cartpole-result](/assets/img/posts/dqn_example/DQN_cartpole.png){: width="600" height="500" }
+![cartpole-result](/assets/img/posts/cartpole_example/DQN_cartpole.png){: width="600" height="500" }
 _Cartpole DQN results_
 
 학습이 episode가 지남에 따라 score 값이 증가되는 것이 확인되고, episode 초기에는 무작위로 action을 취할 때 score가 더 높지만 학습이 진행됨에 따라 DQN 모델의 weight가 업데이트 되며 greedy 정책 기반으로 action을 취할 때 score가 높아지는 것을 확인할 수 있다. 
