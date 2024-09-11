@@ -24,7 +24,7 @@ Main network와 target network의 분리, replay buffer의 도입으로 DQN의 �
 
 ## 2. Double DQN
 
-기존 DQN의 target value는 다음과 같이 표현된다. 
+Double DQN은 아래와 같은 기존 DQN의 target value의 수식을 수정하여 agent의 성능을 향상시킨다.  
 
 $$
 Y_{t}^{DQN} = R_{t+1} + \gamma \max_{a'}Q(S_{t+1}, a' | \theta^{-}) 
@@ -39,10 +39,19 @@ $$
 
 위의 DDQN에서의 target value 수식을 보면 next state에서 agent가 취하는 next action은 main network의 greedy policy 기반으로 이루어지며, (next state-next action) pair에 대한 Q-value는 target network 기준으로 계산되는 것을 알 수 있다. 
 2번의 Q-value 연산이 이루어지므로 Double DQN 이라고 명명되며, 줄여서 DDQN이라 한다. 
-위와 같이 기존 DQN의 over-estimation 문제를 해결하는 것만으로도 높은 성능 향상이 이루어졌음을 [[1]](#1)에서 보였다.   
+위와 같이 기존 DQN의 over-estimation 문제를 해결하는 것만으로도 동일한 DQN과 동일한 네트워크 구조를 갖는 모델을 사용하더라도 성능 향상이 이루어졌음을 [[1]](#1)에서 보였다.   
 
 
 ## 3. Dueling Architecture 
+
+Double DQN이 target value를 구하는 수식을 수정하였다면 Dueling architecture는 학습 모델의 구조를 변형하여 agent의 성능을 향상 시키는 방법이다. 
+Dueling architecture에서는 state의 가치를 판단하는 Value network와 해당 state에서의 행동에 대한 가치를 판단하는 Advantage network로 분리한 이후, 하나로 통합하여 (aggregation) Q-function 값을 구한다. 
+이 때, value network의 출력은 스칼라이며 advantage network의 출력은 가능한 action 개수의 크기를 갖는 벡터이다. 
+아래 그림을 통해 일반적인 DQN과 Dueling architecture를 적용하였을 경우 학습 모델의 구조 차이를 알 수 있다 [[2]](#2). 
+
+![dddqn-concept](/assets/img/posts/dqn_improvement/dueling_architecture.png){: width="600" height="500" }
+_Dueling architecture vs vanilla dqn_
+
 
 
 
