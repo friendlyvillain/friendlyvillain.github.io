@@ -103,12 +103,11 @@ import torch
 import torch.nn as nn
 
 class DQN(nn.Module):
-    def __init__(self, num_input_layers, num_output_layers, batch_norm=False):
+    def __init__(self, num_input_layers, num_output_layers, batch_norm=True):
         super().__init__()
 
         self.num_input_layers = num_input_layers
         self.num_output_layers = num_output_layers
-        self.duel_opt = duel_opt
         self.batch_norm = batch_norm
         self.setup_model()
         self.apply(self._init_weights)
@@ -125,8 +124,7 @@ class DQN(nn.Module):
 
     def _init_final_layer(self):
         nn.init.xavier_uniform_(self.layer3.weight.data)
-        if self.duel_opt is True:
-            nn.init.xavier_uniform_(self.layer3_val.weight.data)
+
 
     def setup_model(self):
         self.layer1 = nn.Sequential(nn.Linear(self.num_input_layers, 32), nn.BatchNorm1d(32), nn.ReLU())
