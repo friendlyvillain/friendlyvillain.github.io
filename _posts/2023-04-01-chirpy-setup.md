@@ -8,16 +8,16 @@ comments: true
 pin: true
 ---
 
-## 준비
+## 0. 사전 준비
 
 로컬에 ruby, bundle 환경 구축이 완료되어 `bundle exec jekyll serve` 명령어로 [127.0.0.1:4000](https://127.0.0.1:4000) 을 통해 Chirpy 테마 확인 가능
 
 
-## 개요
+## 1. 개요
 
 Chirpy 테마가 적용된 Github 페이지 생성을 위해 구글링을 하다보면 로컬에서는 Chirpy 테마 적용이 잘 되지만 Github와 연동하면 적용이 안된다는 글을 많이 볼 수 있다. 
 
-### 문제상황 1
+### 1-1. 문제상황 1
 
 가장 흔한 이슈가 자신의 Github Page repo에 커밋한 이후, 링크에 들어가면 다음과 같이 ---layout: home # Index page --- 만 보인다는 것이다.
 
@@ -33,7 +33,7 @@ _---layout: home # Index page---_
 >Github Setting - Pages - Bulid and development 에서 Source를 Github Actions 로 변경 이후, jekyll.yml 커밋
 {: .prompt-tip }
 
-### 문제상황 2
+### 1-2. 문제상황 2
 
 정상적인 경우, [**위와 같이 조치**](#해결방안-1)하면 Github repo 주소와 Chirpy 테마가 연동이 되지만 여전히 ---layout: home # Index page --- 가 뜨는 문제 상황이 발생하는 경우가 있다.
 Setting에서 확인해보면 Github Actions에서 Source가 적용되지 않았기 때문이다.
@@ -50,7 +50,7 @@ Setting에서 확인해보면 Github Actions에서 Source가 적용되지 않았
 
 위의 명령어를 로컬에서 수행하고, git repo에 커밋한 이후, 다시 Git Actions로 설정에서 Jekyll.yml을 커밋하면 build가 정상적으로 수행되고 얼마 이후, Github repo 주소와 Chripy 테마가 적용되는 것을 확인할 수 있다. 
 
-## 결론
+## 2. 결론
 
 Chirpy 테마는 Github 페이지로 인기있는 테마인 만큼, 많은 사용자들의 의견을 확인할 수 있다. 
 사용하면서 발생한 문제에 대한 대부분의 해결방안은 Chirpy 테마 개발자 페이지의 issue 탭에서 키워드로 검색해보거나 Chirpy 데모 페이지에서 가이드를 확인해보면 해결방안을 찾을 수 있다.
