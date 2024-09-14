@@ -9,7 +9,7 @@ mermaid: true
 comments: true
 ---
 
-## Introduction
+## 1. Introduction
 
 TD Control Algorithm을 통해 Model-Free한 환경에서 매 time-step 마다 Agent가 Model을 업데이트하며 학습할 수 있는 것을 확인하였다. 
 그러나 앞서 살펴본 TD Control Algorithm에서는 모든 state와 action에 대한 Q-function (Q-table)을 구해야 한다는 한계가 있다.
@@ -23,9 +23,9 @@ DQN에서는 학습의 효율 개선을 위한 다음 2가지 특징이 추가�
 - Target Network
 - Replay Buffer
 
-## DQN Algorithm
+## 2. DQN Algorithm
 
-### Continuous State Background
+### 2-1. Continuous State Background
 
 TD example 포스팅에서 다뤘던 Frozen Lake는 총 16개의 이산적인 State로 구성되어 있고, 문제를 풀기 위해, Terminal을 제외한 State에서 행동 가능한 Action의 조합에 따른 Q-table을 도출하였다.
 그러나 Frozen Lake와 같이 State가 Discrete하지 않고, Continuous하거나 혹은 State의 개수가 Discrete 하더라도 그 개수가 매우 많을 경우, Q-table을 이용한 방법은 적용이 불가능하거나 Table에 대한 메모리가 State에 비례하여 기하급수적으로 증가하고, 모든 State에 대한 Q-table을 구하기 위한 시간 또한 크게 증가한다. 
@@ -57,7 +57,7 @@ DQN의 입출력 차원의 원리에 대한 대한 개념은 [다음 절](#actio
 Cartpole 예제에서 state를 4개의 성분으로 구성된 vector로 사용하지 않고, 관찰한 시점에서의 ($3 \times W \times H$) 차원의 RGB 이미지를 state로 구성한다면 DQN의 입력 차원 또한 ($3 \times W \times H$) 크기의 데이터를 입력으로 받는 Convolutional Neural Network (CNN)의 구조와 동일해진다. (이 경우에도 출력 차원은 동일하다.)
 따라서, state가 더 복잡한 Matrix 형태, Cubic 형태로 구성된다면 DQN의 입력 또한 state의 차원과 동일하게 Matrix 형태, Cubic 형태로 구성하면 된다.
 
-### Action-Value function (Q-function) in DQN
+### 2-2. Action-Value function (Q-function) in DQN
 
 이전 포스팅에서 다룬 Q-table에서는 관찰한 state에서 취한 action에 대한 state-action pair (Q-value)에 대한 값을 업데이트 하였다.
 DQN의 경우에는 관찰한 state를 설계한 NN 모델에 입력값으로 넣은 출력 결과를 Q-value 값으로 사용한다.
@@ -68,7 +68,7 @@ DQN의 경우에는 관찰한 state를 설계한 NN 모델에 입력값으로 �
 여기까지 설명한 DQN의 입출력 차원을 왜 state의 차원과 action space의 크기로 정의하는지 그 원리를 이해하였다면 (원리를 정화히 이해하지 못하더라도), DQN 모델을 정의하여 학습을 시키면 어느정도 reasonable한 결과를 얻을 수 있을 것이다. 
 여기서 DQN의 성능을 더욱 향상시키기 위한 알고리즘으로 [[1]](#1)에서 다음과 같은 **Target Network**와 **Replay Buffer** 개념이 도입되었다.
 
-- Target Network
+- 2-2-1. Target Network
 
 앞선 [Q-learning](https://friendlyvillain.github.io/posts/temporal-difference/#q-learning-off-policy-td-control-algorithm) 포스팅에서 다루었던 Q-function을 업데이트하는 수식은 다음과 같다. 
 
@@ -95,7 +95,7 @@ $$
 Target network가 학습 network를 계속 추적할 수 있도록, $\theta^{-}$는 일정 학습 단계 주기에 따라 업데이트 시켜준다. 
 가장 단순한 업데이트 방법은 $\theta^{-}$를 $\theta$로 치환시키는 방법이고, 경우에 따라 업데이트 속도를 조절하기 위해 일부만 $\theta$를 추적할 수 있도록 하는 soft update 방식을 사용하기도 한다. 
 
-- Replay Buffer
+- 2-2-2. Replay Buffer
 
 학습의 불안정성 문제를 해결하기 위해, Target Network를 도입하였지만 이것만으로는 충분하지 않다. 
 DQN 또한 TD 방식으로 동작하는 알고리즘이므로 만약 time-step마다 Q-Network를 업데이트한다면 $S_t$에서의 경험과 $S_{t+1}$에서의 경험은 서로 밀접하게 연관되어 있어 업데이트가 불안정해질 수 있다. 
@@ -104,13 +104,13 @@ DQN 또한 TD 방식으로 동작하는 알고리즘이므로 만약 time-step�
 Replay buffer는 FIFO (First-In-First-Out)의 큐 (Queue) 형태의 자료구조를 갖는 buffer로 설정한 buffer 크기 이상의 경험이 들어온 경우, 가장 오래된 경험을 폐기하고 가장 최신 경험을 저장한다. 
 
 
-- Pseudo Code
+- 2-2-3. Pseudo Code
 본 포스팅에서 다룬 전체 DQN 알고리즘을 Pseudo code로 나타내면 다음과 같다. (출처: [[1]](#1))
 
 ![dqn-algorithm](/assets/img/posts/dqn/dqn_algo.png){: width="600" height="500" }
 _DQN Algorithm Pseudo Code_
 
 
-## Reference
+## 3. Reference
 ### [1] 
 V. Mnih, K. Kavukcuoglu, D. Silver et al., “Human-level control through deep reinforcement learning,” Nature, vol. 518, no. 7540, pp. 529–533, 2015.

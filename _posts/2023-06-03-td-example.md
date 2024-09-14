@@ -9,14 +9,14 @@ mermaid: true
 comments: true
 ---
 
-## Introduction
+## 1. Introduction
 
 본 포스팅에서는 Python 코드를 통해, Temporal Difference (TD) Control 알고리즘을 구현하는 내용을 다룬다. 
 [MC 예제](https://friendlyvillain.github.io/posts/mc-example/)에서 다루었던 환경과 동일하게 OpenAI Gym의 Frozen Lake 환경에 대해 앞선 포스팅에서 다룬 On-Policy TD Control 알고리즘인 [**SARSA**](https://friendlyvillain.github.io/posts/temporal-difference/#sarsa-on-policy-td-control-algorithm)와 Off-Policy TD Control 알고리즘인 [**Q-learning**](https://friendlyvillain.github.io/posts/temporal-difference/#q-learning-off-policy-td-control-algorithm)을 적용한다.
 코드 구현을 위해 필요한 Python Package는 Gym, Numpy, Matplotlib 이다. 
 
 
-## MDP Environment
+## 2. MDP Environment
 
 [MC 예제](https://friendlyvillain.github.io/posts/mc-example/)에서 다루었던 Frozen Lake의 MDP Environment와 동일하다. 
 State, Action, Reward 와 같은 자세한 설명은 [이 포스팅](https://friendlyvillain.github.io/posts/mc-example/#mdp-environment)에 작성되어 있다.
@@ -24,7 +24,7 @@ Reward의 경우 Next State가 Hole에 빠질 경우, MC에서는 $-1$의 Reward
 MC의 경우에는 Episode가 종료될 때 까지의 누적 Reward를 사용하지만 TD의 경우는 바로 다음 State의 결과만 이용하여 학습하기 때문에 안좋은 (Hole에 빠지는) 행동을 수행하였을 경우 이를 억제하는 효과를 얻을 수 있다. 
 
 
-## Implementation
+## 3. Implementation
 
 ```python
 
@@ -208,7 +208,7 @@ if __name__ == "__main__":
     agent_qlearn = run_td(on_policy=False) # on_policy=False; Q-learning
 ```
 
-### 코드 설명
+### 3-1. 코드 설명
 
 Frozen Lake 환경에 dynamics를 주기 위해 **is_slippery=True**로 하여, gym 모듈을 사용하여 다음과 같은 MDP 환경을 만든다.
 
@@ -234,7 +234,7 @@ Off-policy Q-learning일 경우에는 next state에 대한 Action을 구하기 �
 run_td() 함수에서 TD_Agent 객체를 만든 이후, episode의 매 time step 마다 get_action() method를 호출하여 action을 취하고, update() method()를 호출하여 agent 객체의 Q-function을 업데이트한다. 
 
 
-### 코드 실행 결과
+### 3-2. 코드 실행 결과
 
 MC 예제에서 다루었던 내용과 동일하게, TD Control을 적용하기 전, initial policy 기반으로 Frozen Lake를 수행하면 Goal에 도달할 확률은 0에 가깝다.
 총 15000의 Episode 동안, discount factor=0.9, learning rate=0.01로 설정한 이후, epsilon을 $30\% \rightarrow 1\%$로 감소시키면서 TD Control Algorithm을 적용하였다.
@@ -263,7 +263,7 @@ SARSA와 Q-learning 모두 얻어진 Greedy Policy에 따라 Frozen Lake를 수�
 **연산 환경에 따라 도달되는 Policy와 정확도에는 차이가 있을 수 있으나, MC와 다르게 TD를 적용할 경우 최종적으로 얻어진 Greedy Policy가 높은 정확도를 보이는 경우가 훨씬 많아지게 된다.**
 
 
-## Conclusion
+## 4. Conclusion
 본 포스팅에서는 Model-Free한 MDP 환경에서 TD Control 에 대한 Pseudo Code를 간단한 Frozen Lake 환경에 대한 Example을 통해 Python을 이용하여 구현하였다.
 TD Control은 MC Control과 달리 Episode가 종료되지 않더라도 Q-function을 업데이트 할 수 있다는 장점이 있다. 
 Frozen Lake와 같이 간단한 환경에서는 On-policy TD Control (SARSA)과 Off-policy TD Control (Q-learning) 모두 학습된 결과가 비슷하지만 일반적인 경우 Q-learning의 학습 효율이 더욱 좋은 것으로 알려져 있다. 
@@ -273,5 +273,5 @@ TD Control의 경우에도 한계가 존재하는데 이는 Discrete한 State에
 DQN은 TD Control의 형태와 구현이 매우 유사하기 때문에 TD Control을 이해하였다면 쉽게 구현이 가능하다.
 다음 포스팅에서는 이러한 Continuous State를 핸들링하기 위한 강화학습 알고리즘에 대해 다룬다.
 
-## Reference
+## 5. Reference
 [Frozen Lake Description](https://www.gymlibrary.dev/environments/toy_text/frozen_lake/#frozen-lake)

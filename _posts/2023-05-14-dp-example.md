@@ -13,14 +13,14 @@ sitemap:
 comments: true
 ---
 
-## Introduction
+## 1. Introduction
 
 본 포스팅에서는 Python 코드를 통해, Dynamic Programming (DP) 알고리즘을 구현하는 내용을 다룬다. 
 앞선 포스팅에서 다룬 [Policy Iteration](https://friendlyvillain.github.io/posts/dynamic-programming/#policy-iteration) 알고리즘을 이용하여 4X 4 Grid World에 대한 Value Function과 Optimal Policy를 도출한다.
 코드 구현을 위해 필요한 Python Package는 NumPy 이다. 
 
 
-## MDP Environment
+## 2. MDP Environment
 
 MDP 환경은 다음 그림과 같은 4 X 4 Grid World 이다. 
 
@@ -29,11 +29,11 @@ _4X4 Grid World_
 
 위의 Grid World에서 Agent의 목표는 각 State에서 Terminal State로 이동하는 최적의 Policy를 찾는 것이다.
 
-### State
+### 2-1. State
 
 총 0~15 까지 16개의 State가 있고, 0과 15는 Terminal State이다. 
 
-### Action
+### 2-2. Action
 
 Terminal State를 제외하고, 1~14의 State에서 다음과 같이 4가지 방향으로 이동하는 Action이 존재한다.
 
@@ -44,11 +44,11 @@ Terminal State를 제외하고, 1~14의 State에서 다음과 같이 4가지 방
 
 만약 Action을 취하였을 때 다음 State가 Grid를 벗어나는 경우에는 다음 State와 현재 State는 동일하다. 
 
-### Reward
+### 2-3. Reward
 
 State에서 Action을 취하였을 때, 다음 State가 Terminal일 경우에는 Reward는 $0$ 이고, 그 이외의 경우에 대한 Reward는 모두 $-1$ 이다.
 
-### MDP Dynamics (State Transition Probability)
+### 2-4. MDP Dynamics (State Transition Probability)
 
 DP를 적용하기 위해서 Agent는 MDP의 Dynamics를 알고 있어야 한다. 
 4 X 4 Grid World에서는 취하는 Action에 따라 State Transition이 **Deterministic** 하다. 
@@ -69,7 +69,7 @@ $$ p(s'=1, r=-1 | s=1, a=3) = 1 $$
 Model-Free한 환경에 대한 알고리즘은 후술할 Monte Carlo 기법과 관련된 포스팅에서 더 자세히 다룬다. 
 
 
-## Implementation
+## 3. Implementation
 
 ```python
 import numpy as np
@@ -246,7 +246,7 @@ if __name__ == "__main__":
     env = run_dp()
   ``` 
 
-### 코드 설명
+### 3-1. 코드 설명
 
 Grid_Env 클래스를 정의하고, inital policy와 inital value table을 초기화 한다. 
 Grid_Env 클래스의 주요 method 목록은 다음과 같다. 
@@ -266,7 +266,7 @@ Value table 결과를 바탕으로 모든 state에서 greedy action 기반으로
 Policy Update를 모두 수행한 이후, environment의 policy에 대한 stable 여부를 리턴한다.
 (Old Policy == Greedy Policy 일 경우에만 True 리턴)
 
-### 코드 실행 결과
+### 3-2. 코드 실행 결과
 
 초기화된 initial policy와 initial value table에 따라 소요되는 policy iteration 횟수에 차이가 있으나 대략 3~4번의 policy iteration으로 optimal policy에 수렴한다. 
 각 State에서 도출되는 optimal policy는 다음과 같다.
@@ -281,7 +281,7 @@ Final Policy:
 
 Optimal Policy 결과를 확인하면 직관적으로 Terminal State 에 가장 빨리 도달할 수 있는 Action을 취하는 것을 확인할 수 있으며, 일부 State에 대해서는 Multiple Action이 Optimal Policy가 될 수 있지만 편의상 L > D > R > U 순으로 Action에 대한 우선 순위를 두어 1개의 Action만 취하도록 하였다. 
 
-## Conclusion
+## 4. Conclusion
 본 포스팅에서는 Policy Iteration 에 대한 Pseudo Code를 간단한 Grid World 환경에 대한 Example을 통해 Python을 이용하여 구현하였다.
 DP는 Agent가 Model을 정확히 알고 있어야 적용할 수 있다는 한계가 있고, 실제로 접하게 되는 대다수의 RL 문제에서는 MDP의 Dynamics를 알지 못한다.
 MDP의 Dynamics를 알지 못하는 경우 DP를 적용하지 못하더라도 DP에서 사용한 개념은 Model-Free한 MDP를 풀기 위한 토대가 된다. 

@@ -55,7 +55,7 @@ Setting에서 확인해보면 Github Actions에서 Source가 적용되지 않았
 Chirpy 테마는 Github 페이지로 인기있는 테마인 만큼, 많은 사용자들의 의견을 확인할 수 있다. 
 사용하면서 발생한 문제에 대한 대부분의 해결방안은 Chirpy 테마 개발자 페이지의 issue 탭에서 키워드로 검색해보거나 Chirpy 데모 페이지에서 가이드를 확인해보면 해결방안을 찾을 수 있다.
 
-## 참고 링크
+## 3. 참고 링크
 
 [Chirpy Theme 개발자 페이지](https://github.com/cotes2020/jekyll-theme-chirpy)
 

@@ -9,7 +9,7 @@ mermaid: true
 comments: true
 ---
 
-## Introduction
+## 1. Introduction
 Dynamic Programming (DP)는 Bellman Eq.를 풀기 위해 **Model의 Dynamics**, 다시 말하면, MDP의 **State transition Probabilty** 를 알고 있어야 적용이 가능한 방법이다 (**Model-based**).
 그러나 대부분 접하게되는 MDP 문제에서는 State Transition Probability를 정확하게 알 수 없다.
 
@@ -26,7 +26,7 @@ Frozen Lake는 목표는 Grid World와 유사하게 시작점에서 Hole에 빠�
 MC 부터가 본격적인 강화학습 문제를 푸는 시작점이라고 할 수 있다. 
 
 
-## MC Algorithm
+## 2. MC Algorithm
 MC도 DP와 유사하게 MDP에서 Policy를 평가 (**Policy Evaluation**) 하고, Policy를 개선 (**Policy Improvement**) 하는 **Policy Control** 하는 과정을 수행한다. 
 MC는 Algorithm은 Model의 Dyanmics를 모르는 경우에 MDP를 풀기 위해 무수히 많은 **Sampling**의 과정을 거친다.  
 MC에서 Policy Evaluation을 위한 가장 기본적인 원리는 일단 어떤 Policy에 따라 Agent가 MDP의 환경에서 시작점부터 종료가될 때까지 Action을 수행을 하고 역으로 가치함수를 도출해 나가는 것이다. 
@@ -37,7 +37,7 @@ Sampling을 통해 Value Function을 구하는 과정은 마치 주사위 2개�
 즉, 우리는 이미 2개의 주사위를 구렸을 때 눈의 합의 기대값이 7이라는 것을 알고 있지만, 실제로 주사위 2개를 굴린 이후 눈의 합을 구하는 과정 (Episode) 을 반복 수행한 이후, 평균을 낸 값도 Episode의 개수가 많아질 수록 큰 수의 법칙에 의해 7에 근사한 값이 나오는 원리와 동일하다. 
 
 
-### Action-Value Function (Q-function) in MC
+### 2-1. Action-Value Function (Q-function) in MC
 DP에서는 가치 함수으로 State-Value Function을 사용하였다. 
 하지만 MC에서는 가치 함수로 Action-Value Function (Q-function)을 주로 사용한다.
 DP에서는 Model을 알고 있기 때문에 State-Value Function이 있으면 최적 Policy를 도출할 수 있지만, Model을 모르는 경우에는 State-Value Function 자체만으로는 최적 Policy를 결정할 수 없기 때문이다. 
@@ -45,7 +45,7 @@ DP에서는 Model을 알고 있기 때문에 State-Value Function이 있으면 �
 따라서, MC를 포함하여 Model-free한 환경에서는 State별 수행가능한 모든 Action에 대한 Q-function을 가치함수로 사용한다.
 
 
-### MC Policy Control
+### 2-2. MC Policy Control
 MC에서는 가치함수로 Q-function을 사용한다는 점을 제외하고, MC에서의 Policy Control은 DP에서 Policy Control과 매우 유사하다.다음과 같이 MC Control에서는 Policy에 따라 Q-function을 평가 (Evaluation) 하고, Greedy Policy에 의해 Policy를 업데이트 (Improvement) 한다.
 
 ![mc-control](/assets/img/posts/mc/mc_control.png){: width="600" height="400" }
@@ -104,13 +104,13 @@ MDP 환경에 대해 임의의 Policy ($\pi_{0}$)로 초기화 하고, 모든 St
     $$
     
 
-### Pseudo Code
+### 2-3. Pseudo Code
 MC Control 알고리즘을 Pseudo Code로 나타내면 다음과 같다.
 
 ![mc-algorithm](/assets/img/posts/mc/mc_algo.png){: width="600" height="800" }
 _MC Control Algorithm Pseudo Code_
 
-## Incremental Implementation
+## 3. Incremental Implementation
 어떤 State-Action Pair에 대해, 누적 보상값의 평균은 다음과 같이 주어진다.
 
 $$
@@ -147,11 +147,11 @@ $$
     Q_{N+1} = Q_{N} + \alpha(G_N - Q_N)
 $$
 
-## Conclusion
+## 4. Conclusion
 DP가 Model을 알고 있는 환경에서 Value Function을 계산 (Compute)하는 알고리즘이라면 MC는 Model을 모르고 있는 환경에서 Sampling을 통해 Value Function을 학습 (Learn)하는 알고리즘이라고 볼 수 있다.
 MC Control은 하나의 Episode가 온전히 종료되어야만 Q-function을 업데이트할 수 있다는 한계가 있고, 이와 같은 한계를 극복하기 위해 Time-Difference (TD) 기법이 도입되었다.
 MC에서 사용한 개념은 DQN에 이르기 까지 Model-Free한 환경에서 강화학습 문제를 다루기 위한 토대가 된다.
 [다음 포스팅](https://friendlyvillain.github.io/posts/mc-example/)에서는 Python 기반으로 Frozen Lake 환경에서 MC를 구현하는 예제를 다룬다.
 
-## Reference
+## 5. Reference
 [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book.html)
