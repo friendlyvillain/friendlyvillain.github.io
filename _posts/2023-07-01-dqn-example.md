@@ -441,6 +441,8 @@ Main 함수를 실행시켜 학습 episode 동안 누적된 보상에 대한 결
 ![cartpole-result](/assets/img/posts/cartpole_example/DQN_cartpole.png){: width="600" height="500" }
 _Cartpole DQN results_
 
+**연산 환경에 따라 출력되는 결과는 상이할 수 있다.**
+
 학습이 episode가 지남에 따라 score 값이 증가되는 것이 확인되고, episode 초기에는 무작위로 action을 취할 때 score가 더 높지만 학습이 진행됨에 따라 DQN 모델의 weight가 업데이트 되며 greedy 정책 기반으로 action을 취할 때 score가 높아지는 것을 확인할 수 있다. 
 Epsilon이 감소하면서 최대 step인 500회 까지 action이 진행되는 episode가 증가하는 것을 확인할 수 있다.  
 한편, episode에서 score를 보면 DQN 모델의 성능이 약간 불안정한 것이 확인되는데 추가로 개선된 DQN을 통해 학습 안정성을 높일 수 있다. 
