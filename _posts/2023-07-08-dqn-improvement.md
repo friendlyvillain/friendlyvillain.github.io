@@ -50,7 +50,10 @@ Dueling architecture에서는 state의 가치를 판단하는 (State-value funct
 개념적으로 Q-function과 value network, adavantage network 사이의 관계식은 다음과 같이 표현된다. 
 
 $$
-    A(s, a) = Q(s, a) - V(s) \\
+    A(s, a) = Q(s, a) - V(s) 
+$$
+
+$$
     Q(s, a) = V(s) + A(s, a)
 $$
 
