@@ -3,7 +3,7 @@ title: DQN example - Cartpole
 author: jh
 date: 2023-07-01 19:22:32 +0900
 categories: [Machine Learning, Reinforcement Learning]
-tags: [ML, RL, DQN, Replay Memory, Temporal-Difference, Action-Value Function, Q-function, Off-policy, Cartpole, Pytorch]
+tags: [ML, RL, DQN, Replay Memory, Temporal-Difference, Action-Value Function, Q-function, Off-policy, Cartpole, Python, Pytorch]
 math: true
 mermaid: true
 comments: true
@@ -103,7 +103,7 @@ import torch
 import torch.nn as nn
 
 class DQN(nn.Module):
-    def __init__(self, num_input_layers, num_output_layers, duel_opt=False, batch_norm=False):
+    def __init__(self, num_input_layers, num_output_layers, batch_norm=False):
         super().__init__()
 
         self.num_input_layers = num_input_layers
@@ -180,7 +180,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class DQNAgent():
     def __init__(self, num_input_layers, num_output_layers, gamma=0.99, tau=0.1, learning_rate=1e-3, max_memory_size=50000,
-                 duel_opt=True, batch_norm=True):
+                 batch_norm=True):
         self.num_input_layers = num_input_layers
         self.num_output_layers = num_output_layers
         self.gamma = gamma
@@ -188,11 +188,11 @@ class DQNAgent():
 
         # Main network
         self.dqn_net = DQN(num_input_layers=self.num_input_layers, num_output_layers=self.num_output_layers,
-                           duel_opt=duel_opt, batch_norm=batch_norm).to(device)
+                           batch_norm=batch_norm).to(device)
 
         # Target network
         self.dqn_target = DQN(num_input_layers=self.num_input_layers, num_output_layers=self.num_output_layers,
-                              duel_opt=duel_opt, batch_norm=batch_norm).to(device)
+                              batch_norm=batch_norm).to(device)
 
 
         for target_param, param in zip(self.dqn_target.parameters(), self.dqn_net.parameters()):
