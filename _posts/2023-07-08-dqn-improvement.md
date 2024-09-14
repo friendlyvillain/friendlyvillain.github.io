@@ -34,7 +34,7 @@ $$
 이와 같은 문제점을 보완하기 위해 Double DQN (DDQN)이 도입되었고, DDQN에서는 target value를 아래와 같이 수정한다. 
 
 $$
-Y_{t}^{DDQN} = R_{t+1} + \gamma Q(S_{t+1}, \text{arg}\max_{a'} Q \left( S_{t+1}, a'| \theta) | \theta^{-} \right) 
+Y_{t}^{DDQN} = R_{t+1} + \gamma Q \left( S_{t+1}, \text{arg}\max_{a'} Q ( S_{t+1}, a'| \theta) | \theta^{-} \right) 
 $$
 
 위의 DDQN에서의 target value 수식을 보면 next state에서 agent가 취하는 next action은 main network의 greedy policy 기반으로 이루어지며, (next state-next action) pair에 대한 Q-value는 target network 기준으로 계산되는 것을 알 수 있다. 
@@ -50,7 +50,7 @@ Dueling architecture에서는 state의 가치를 판단하는 (State-value funct
 개념적으로 Q-function과 value network, adavantage network 사이의 관계식은 다음과 같이 표현된다. 
 
 $$
-    A(s, a) = Q(s, a) - V(s)
+    A(s, a) = Q(s, a) - V(s) \\
     Q(s, a) = V(s) + A(s, a)
 $$
 
