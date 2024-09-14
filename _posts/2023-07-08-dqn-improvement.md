@@ -85,7 +85,7 @@ DDDQN 구조를 적용하는 경우 Atari game에서 높은 성능 향상이 이
 
 ## 4. Conclusion 
 본 포스팅에서는 기본적인 DQN의 성능 향상을 위해, target 을 수정하는 DDQN, 학습 모델 구조를 수정하는 Dueling architecture에 대한 개념을 소개하였다. 
-다음 포스팅에서는 Cartpole 예제에 DDQN, DDDQN을 적용하여 DQN 대비 성능 개선이 어느정도 일어나는지 확인할 예정이다. 
+[다음 포스팅](https://friendlyvillain.github.io/posts/ddqn-dddqn-example/)에서는 Cartpole 예제에 DDQN, DDDQN을 적용하여 DQN 대비 성능 개선이 어느정도 일어나는지 확인한다. 
 
 
 ## Reference
