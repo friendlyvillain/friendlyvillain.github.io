@@ -96,4 +96,4 @@ DP 알고리즘에서 Policy Iteration과 Value Iteration 모두 Optimal Policy�
 
 
 ## 4. Reference
-[Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book.html)
+[Reinforcement Learning: An Introduction](https://incompleteideas.net/book/the-book.html)

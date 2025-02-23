@@ -91,4 +91,4 @@ TD Control 알고리즘은 향후 발전된 강화학습의 알고리즘의 형�
 
 
 ## 4. Reference
-[Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book.html)
+[Reinforcement Learning: An Introduction](https://incompleteideas.net/book/the-book.html)
