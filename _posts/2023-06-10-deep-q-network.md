@@ -57,7 +57,6 @@ DQN의 입출력 차원의 원리에 대한 대한 개념은 [다음 절](#actio
 Cartpole 예제에서 state를 4개의 성분으로 구성된 vector로 사용하지 않고, 관찰한 시점에서의 ($3 \times W \times H$) 차원의 RGB 이미지를 state로 구성한다면 DQN의 입력 차원 또한 ($3 \times W \times H$) 크기의 데이터를 입력으로 받는 Convolutional Neural Network (CNN)의 구조와 동일해진다. (이 경우에도 출력 차원은 동일하다.)
 따라서, state가 더 복잡한 Matrix 형태, Cubic 형태로 구성된다면 DQN의 입력 또한 state의 차원과 동일하게 Matrix 형태, Cubic 형태로 구성하면 된다.
 
-<a id="action-value-function"></a>
 ### 2-2. Action-Value function (Q-function) in DQN {#action-value-function}
 
 이전 포스팅에서 다룬 Q-table에서는 관찰한 state에서 취한 action에 대한 state-action pair (Q-value)에 대한 값을 업데이트 하였다.
