@@ -32,14 +32,19 @@
   );
 
   /* Sidebar */
-  --site-title-color: #717070;
-  --site-subtitle-color: #868686;
+  // --site-title-color: #717070;
+  --site-title-color: #06066f;
+  // --site-subtitle-color: #868686;
+  --site-subtitle-color: #06066f;
   --sidebar-bg: #1e1e1e;
   --sidebar-border-color: #292929;
-  --sidebar-muted-color: #868686;
+  // --sidebar-muted-color: #868686;
+  --sidebar-muted-color: #06066f;
   --sidebar-active-color: rgb(255, 255, 255, 0.95);
-  --sidebar-hover-bg: #262626;
-  --sidebar-btn-bg: #232328;
+  // --sidebar-hover-bg: #262626;
+  --sidebar-hover-bg: #e7dfdf;
+  // --sidebar-btn-bg: #232328;
+  --sidebar-btn-bg: #06066f;
   --sidebar-btn-color: #787878;
   --avatar-border-color: rgb(206, 206, 206, 0.9);
 

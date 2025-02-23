@@ -19,6 +19,10 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
   background: var(--sidebar-bg);
   border-right: 1px solid var(--sidebar-border-color);
 
+  background: url('/assets/img/background/left_sidebar.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

@@ -14,8 +14,10 @@ baseurl: ""
 # otherwise, the layout language will use the default value of 'en'.
 lang: en
 
+prefer_datetime_locale:
+
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone:
+timezone: Asia/Seoul
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
@@ -83,7 +85,7 @@ img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
 # avatar: "/commons/avatar.jpg"
-avatar:
+avatar: /assets/img/avatar/avatar.jpg
 
 # boolean type, the global switch for TOC in posts.
 toc: true
