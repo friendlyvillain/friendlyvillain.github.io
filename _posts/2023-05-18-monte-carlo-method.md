@@ -154,4 +154,4 @@ MC에서 사용한 개념은 DQN에 이르기 까지 Model-Free한 환경에서 
 [다음 포스팅](https://friendlyvillain.github.io/posts/mc-example/)에서는 Python 기반으로 Frozen Lake 환경에서 MC를 구현하는 예제를 다룬다.
 
 ## 5. Reference
-[Reinforcement Learning: An Introduction](https://incompleteideas.net/book/the-book.html)
+[Reinforcement Learning: An Introduction](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)

@@ -72,4 +72,4 @@ $$ \ v_{*}(s) = \max_{a}q_{*}(s, a) $$
 이 때, 크게 Agent가 **MDP의 Dynamics**를 알고 있는가 (**Model-based**)에 모르고 있는가 (**Model-free**)에 따라 Dynamic Programming 기법과 Monte Carlo 기법으로 풀이 방법이 나뉜다. 
 
 ## 4. Reference
-[Reinforcement Learning: An Introduction](https://incompleteideas.net/book/the-book.html)
+[Reinforcement Learning: An Introduction](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)
