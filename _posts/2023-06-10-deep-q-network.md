@@ -37,10 +37,10 @@ _Cartpole_
 Cartpole 환경에 대한 구체적인 정보는 향후 예시에서 다룰 포스팅과 [OpenAI gym 페이지](https://www.gymlibrary.dev/environments/classic_control/cart_pole/)를 참고하고, 본 포스팅에서는 State와 Action에 대해서만 간략하게 소개한다.
 Cartpole 환경에서 State는 다음과 같은 총 4개의 성분으로 구성된다. 
 
-- 카트의 위치 (Cart position): $-4 \sim 4$
-- 카트의 속도 (Cart velocity): $-\infty \sim \infty$
-- 폴의 각도 (Pole angle[radian]): $-0.418 \sim 0.418$ 
-- 폴의 각속도 (Pole angular velocity): $-\infty \sim \infty$
+- 카트의 위치 (Cart position): $ -4 \sim 4 $
+- 카트의 속도 (Cart velocity): $ -\infty \sim \infty $
+- 폴의 각도 (Pole angle[radian]): $ -0.418 \sim 0.418 $ 
+- 폴의 각속도 (Pole angular velocity): $ -\infty \sim \infty $
 
 반면, Cartpole 환경에서 Action은 Discrete한 2개의 Action (0: Move left, 1: Move right)으로만 구성된다.
 
@@ -51,13 +51,14 @@ DQN을 구현할 때, 아래와 같이 입력과 출력의 차원 (dimension)만
 - DQN 입력 차원: DQN의 입력 차원은 state의 차원과 동일하다.
 - DQN 출력 차원: DQN의 출력 차원은 MDP의 Action Space 개수와 동일하다. 
 
-DQN의 입출력 차원의 원리에 대한 대한 개념은 [다음 절](#action-value-function-q-function-in-dqn)에서 더 자세히 설명한다.
+DQN의 입출력 차원의 원리에 대한 대한 개념은 [다음 절](#action-value-function)에서 더 자세히 설명한다.
 
 위의 Cartpole 예제에서 State를 구성하는 4개의 성분을 입력 차원으로 사용한다면 DQN 입력 차원은 $1 \times 4$의 vector가 되며, 출력 차원은 $1 \times 2$의 vector가 된다.
 Cartpole 예제에서 state를 4개의 성분으로 구성된 vector로 사용하지 않고, 관찰한 시점에서의 ($3 \times W \times H$) 차원의 RGB 이미지를 state로 구성한다면 DQN의 입력 차원 또한 ($3 \times W \times H$) 크기의 데이터를 입력으로 받는 Convolutional Neural Network (CNN)의 구조와 동일해진다. (이 경우에도 출력 차원은 동일하다.)
 따라서, state가 더 복잡한 Matrix 형태, Cubic 형태로 구성된다면 DQN의 입력 또한 state의 차원과 동일하게 Matrix 형태, Cubic 형태로 구성하면 된다.
 
-### 2-2. Action-Value function (Q-function) in DQN
+<a id="action-value-function"></a>
+### 2-2. Action-Value function (Q-function) in DQN {#action-value-function}
 
 이전 포스팅에서 다룬 Q-table에서는 관찰한 state에서 취한 action에 대한 state-action pair (Q-value)에 대한 값을 업데이트 하였다.
 DQN의 경우에는 관찰한 state를 설계한 NN 모델에 입력값으로 넣은 출력 결과를 Q-value 값으로 사용한다.
