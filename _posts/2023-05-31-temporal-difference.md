@@ -22,7 +22,7 @@ TD Control 알고리즘의 기본적인 형태와 원리는 DNN과 결합하여 
 
 MC와 마찬가지로 Model-Free한 환경에 적용하기 위해 가치함수로 Q-function을 사용한다. 
 TD는 bootstrap을 통해 Episode가 종료되지 않더라도 Model을 업데이트 할 수 있고, 본 포스팅에서는 가장 기본적인 형태인 **매 time-step마다 Model을 업데이트** 하는 TD control Algorithm을 다룬다. 
-Q-function을 업데이트 하는 방법에 따라 on-policy TD Control Algorithm을 [**SARSA**](#sarsa-on-policy-td-control-algorithm)라 부르고, off-policy TD Control Algorithm을 [**Q-learning**](#q-learning-off-policy-td-control-algorithm)이라 부른다. 
+Q-function을 업데이트 하는 방법에 따라 on-policy TD Control Algorithm을 [**SARSA**](#sarsa-td-control)라 부르고, off-policy TD Control Algorithm을 [**Q-learning**](#q-learning-td-control)이라 부른다. 
 
 
 ### 2-1. On-policy vs Off-policy
@@ -42,7 +42,7 @@ On-policy control의 경우 local optimal에 빠질 가능성이 있는 반면 �
 글로 이해가 되지 않는다면 본 포스팅에서 각각의 TD Control Algorithm에 대해 Q-function 업데이트를 위한 수식을 보면 쉽게 이해가 가능할 것이다.
 
 
-### 2-2. SARSA: On-Policy TD Control Algorithm
+### 2-2. SARSA: On-Policy TD Control Algorithm {#sarsa-td-control}
 
 SARSA Algorithm은 매 time step $t$ 마다 State ($S_t$)에서 Behavior Policy를 따르는 Action ($A_t$)을 수행한 이후, 그에 따른 Reward ($R_{t+1}$)를 관찰한다.
 $S_t$에서 $A_t$를 수행한 이후, 얻어진 Next State ($S_{t+1}$)에서 **Behavior Policy를 따르는** Action ($A_{t+1}$)을 관찰한 이후, 다음 수식을 통해 Q-function을 업데이트 한다. 
@@ -62,7 +62,7 @@ SARSA라는 이름이 붙은 이유는 State-Action-Reward-(Next)State-(Next)Act
 ![sarsa-algorithm](/assets/img/posts/td/sarsa_algo.png){: width="600" height="500" }
 _SARSA Algorithm Pseudo Code_
 
-### 2-3. Q-learning: Off-Policy TD Control Algorithm
+### 2-3. Q-learning: Off-Policy TD Control Algorithm {#q-learning-td-control}
 
 Q-learning Algorithm은 SARSA와 그 형태가 매우 유사하다. 
 SARSA 알고리즘과 마찬가지로 매 time step $t$ 마다 State ($S_t$)에서 Behavior Policy를 따르는 Action ($A_t$)을 수행한 이후, 그에 따른 Reward ($R_{t+1}$)를 관찰한다.
@@ -91,4 +91,4 @@ TD Control 알고리즘은 향후 발전된 강화학습의 알고리즘의 형�
 
 
 ## 4. Reference
-[Reinforcement Learning: An Introduction](https://incompleteideas.net/book/the-book.html)
+[Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book.html)

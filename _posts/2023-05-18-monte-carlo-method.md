@@ -110,7 +110,7 @@ MC Control 알고리즘을 Pseudo Code로 나타내면 다음과 같다.
 ![mc-algorithm](/assets/img/posts/mc/mc_algo.png){: width="600" height="800" }
 _MC Control Algorithm Pseudo Code_
 
-## 3. Incremental Implementation
+## 3. Incremental Implementation {#incremental-implementation}
 어떤 State-Action Pair에 대해, 누적 보상값의 평균은 다음과 같이 주어진다.
 
 $$

@@ -24,7 +24,7 @@ Policy Evaluation + Policy Improvement의 과정을 합쳐서 Policy를 제어 (
 DP 알고리즘에는 크게 [**Policy Iteration**](#policy-iteration)과 [**Value Iteration**](#value-iteration) 방법이 있다. 
 
 
-### 2-1. Policy Iteration
+### 2-1. Policy Iteration {#policy-iteration}
 다음 그림과 같이, 임의로 초기화된 State와 Policy에 대해 Policy의 평가와 개선을 반복 수행하는 알고리즘이다.
 
 ![policy-iteration](/assets/img/posts/dp/policy_iteration.png){: width="600" height="400" }
@@ -35,7 +35,7 @@ _Policy Iteration_
 MDP 환경에 대해 임의의 Policy ($\pi_{0}$)로 초기화 하고, 모든 State에 대한 State-value function ($v_0(s)$)을 임의의 값으로 초기화 한다. 
 
 
-- 2-1-2. Policy Evaluation
+- 2-1-2. Policy Evaluation 
 
 DP에서는 MDP의 dynamics를 알고 있다. 
 따라서, 다음 수식을 통해, 현재 Policy ($\pi$) 에 대해 모든 State에 대한 State-Value Function ($v_{\pi}(s)$)을 구할 수 있다. 
@@ -67,7 +67,7 @@ Policy Iteration 알고리즘을 Pseudo Code로 나타내면 다음과 같다.
 _Policy Iteration Algorithm Pseudo Code_
 
 
-### 2-2. Value Iteration
+### 2-2. Value Iteration {#value-iteration}
 Policy Iteration 알고리즘에서는 먼저 모든 state에 대해 policy evaluation을 통해, 가치함수를 계산하고 policy improvement를 수행하였다.
 Value Iteration 알고리즘은 Policy Iteration과 달리 every time step 마다 다음 수식을 통해, Policy Evaluation과 Policy Improvement를 동시에 수행한다. 
 
