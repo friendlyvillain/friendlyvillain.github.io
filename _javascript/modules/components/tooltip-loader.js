@@ -1,6 +1,11 @@
-/**
- * Initial Bootstrap Tooltip.
- */
+import Tooltip from 'bootstrap/js/src/tooltip';
+
 export function loadTooptip() {
-  $('[data-toggle="tooltip"]').tooltip();
+  const tooltipTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="tooltip"]'
+  );
+
+  [...tooltipTriggerList].map(
+    (tooltipTriggerEl) => new Tooltip(tooltipTriggerEl)
+  );
 }

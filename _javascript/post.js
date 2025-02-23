@@ -1,19 +1,20 @@
-import { basic, initSidebar, initTopbar } from './modules/layouts';
+import { basic, initTopbar, initSidebar } from './modules/layouts';
+
 import {
-  imgExtra,
+  loadImg,
+  imgPopup,
   initLocaleDatetime,
   initClipboard,
-  smoothScroll,
-  initPageviews,
-  toc
-} from './modules/plugins';
+  initToc,
+  loadMermaid
+} from './modules/components';
 
-basic();
+loadImg();
+initToc();
+imgPopup();
 initSidebar();
-initTopbar();
-imgExtra();
 initLocaleDatetime();
 initClipboard();
-toc();
-smoothScroll(); // must be called after toc is created
-initPageviews();
+initTopbar();
+loadMermaid();
+basic();

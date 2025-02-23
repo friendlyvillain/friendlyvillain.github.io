@@ -1,9 +1,15 @@
 import { basic, initSidebar, initTopbar } from './modules/layouts';
-import { imgExtra, initClipboard, smoothScroll } from './modules/plugins';
+import {
+  loadImg,
+  imgPopup,
+  initClipboard,
+  loadMermaid
+} from './modules/components';
 
-basic();
+loadImg();
+imgPopup();
 initSidebar();
 initTopbar();
-imgExtra();
 initClipboard();
-smoothScroll();
+loadMermaid();
+basic();
