@@ -61,9 +61,13 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     display: block;
     width: 6.5rem;
     height: 6.5rem;
+    border-radius: 50%; // Add
+    border: 2px solid rgba(200, 200, 100, 0.8); // Add
     overflow: hidden;
     box-shadow: var(--avatar-border-color) 0 0 0 2px;
     transform: translateZ(0); /* fixed the zoom in Safari */
+
+    margin: 0 auto; // Avatar center align
 
     @include bp.sm {
       width: 7rem;
@@ -71,6 +75,8 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     }
 
     img {
+      width: 100%; // Avatar img fill
+      height: 100%; // Avatar img fill
       transition: transform 0.5s;
 
       &:hover {
@@ -83,7 +89,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     @include mx.mt-mb(2.5rem);
     @extend %clickable-transition;
 
-    padding-left: 2.5rem;
+    padding-left: 1.25rem; // Avatar center align
     padding-right: 1.25rem;
     width: 100%;
 
@@ -107,14 +113,19 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     font-size: 1.75rem;
     line-height: 1.2;
     letter-spacing: 0.25px;
+    width: fit-content;
+    margin: 0 auto; // Title center align
     margin-top: 1.25rem;
     margin-bottom: 0.5rem;
-    width: fit-content;
     color: var(--site-title-color);
   }
 
   .site-subtitle {
     font-size: 95%;
+    justify-content: center;
+    text-align: center;
+    // padding-left: 1.25rem; // Avatar center align
+
     color: var(--site-subtitle-color);
     margin-top: 0.25rem;
     word-spacing: 1px;
